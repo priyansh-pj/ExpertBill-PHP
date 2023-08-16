@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>ExpertBill</title>
+    <meta name="description" content="Experts options for Billing">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Signup Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -129,9 +130,9 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <!-- Login Form -->
-                        <form id="loginForm">
+                        <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>" method="post">
                             <div class="form-group">
-                                <label for="loginEmail">Email address</label>
+                                <label for="loginEmail">Email</label>
                                 <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" required>
                             </div>
                             <div class="form-group">
