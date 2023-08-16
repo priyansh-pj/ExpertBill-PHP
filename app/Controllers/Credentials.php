@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Credentials_model;
+
 class Credentials extends BaseController
 {
     public function __construct()
