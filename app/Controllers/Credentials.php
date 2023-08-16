@@ -20,6 +20,8 @@ class Credentials extends BaseController
     public function login_check()
     {
         $encryption = \Config\Services::encryption();
+        var_dump($_POST);
+        die();
         $hash = ($this->credentials_model->get_info_username($_POST['username']))->password;
         if (!empty($hash) && password_verify($_POST['password'], $hash)) {
             $this->session->set(["password_check" => true, "username" => $_POST['username'], "uid" => ($this->credentials_model->get_uid($_POST['username'])[0]->uid), "profile" => ($this->credentials_model->get_profile($_POST['username']))[0]]);
@@ -33,8 +35,7 @@ class Credentials extends BaseController
     {
         $_POST['name'] = explode(' ', $_POST['name']);
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        // var_dump($_POST);
-        // die();
+
         $this->credentials_model->register_user($_POST);
         $this->session->set(["password_check" => true, "username" => $_POST['username'], "uid" => ($this->credentials_model->get_uid($_POST['username'])[0]->uid), "role" => "", "profile" => ($this->credentials_model->get_profile($_POST['username']))[0]]);
         return redirect()->to(base_url('databliss/organization_verify/' . $_POST['username']));
