@@ -160,7 +160,7 @@ class App extends BaseConfig
      *
      * @deprecated use Config\Session::$cookieName  instead.
      */
-    public string $sessionCookieName = 'ci_session';
+    public string $sessionCookieName = 'expert_bill_session';
 
     /**
      * --------------------------------------------------------------------------
@@ -353,7 +353,7 @@ class App extends BaseConfig
      *
      * @deprecated Use `Config\Security` $tokenName property instead of using this property.
      */
-    public string $CSRFTokenName = 'app_csrf';
+    public string $CSRFTokenName = 'expert_bill_csrf';
 
     /**
      * --------------------------------------------------------------------------
@@ -375,7 +375,7 @@ class App extends BaseConfig
      *
      * @deprecated Use `Config\Security` $cookieName property instead of using this property.
      */
-    public string $CSRFCookieName = 'app_csrf_cookie';
+    public string $CSRFCookieName = 'expert_bill_csrf_cookie';
 
     /**
      * --------------------------------------------------------------------------

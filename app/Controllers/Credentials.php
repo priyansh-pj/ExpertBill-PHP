@@ -20,6 +20,8 @@ class Credentials extends BaseController
     {
         $encryption = \Config\Services::encryption();
         $hash = ($this->credentials_model->get_hash($_POST['email']))->password;
+        var_dump($hash);
+        die();
         if (!empty($hash) && password_verify($_POST['password'], $hash)) {
             $this->session->set(["password_check" => true, "profile" => ($this->credentials_model->get_profile($_POST['email']))]);
             return redirect()->to(base_url('databliss/organization_verify/' . $_POST['username']));

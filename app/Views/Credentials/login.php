@@ -162,6 +162,8 @@
                 action="<?= base_url('Credentials/login_check') ?>"
                 method="post"
               >
+                <?= csrf_field() ?>
+
                 <div class="form-group">
                   <label for="Email">Email</label>
                   <input
