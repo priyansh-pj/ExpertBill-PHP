@@ -19,7 +19,7 @@ class Credentials extends BaseController
     public function login_check()
     {
         $encryption = \Config\Services::encryption();
-        $hash = ($this->credentials_model->get_hash($_POST['email']));
+        $hash = ($this->credentials_model->get_hash($_POST['email']))->password;
         if (!sizeof($hash)) {
             echo ("<script>alert('Credentials Doesn't Exist. Please Reverify Details');</script>");
             return redirect()->to(base_url());
@@ -40,10 +40,8 @@ class Credentials extends BaseController
 
         // $this->credentials_model->register_user($_POST);
         $deubg = $this->credentials_model->register_user($_POST);
-
         $this->session->set(["password_check" => true, "profile" => ($this->credentials_model->get_profile($_POST['email']))]);
-        var_dump($deubg);
-        die();
+
         // return redirect()->to(base_url('databliss/organization_verify/' . $_POST['username']));
     }
 }
