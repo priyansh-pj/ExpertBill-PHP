@@ -125,13 +125,25 @@
             <li class="nav-item">
               <a
                 class="nav-link active"
-                id="login-signup-toggle"
+                id="login-tab"
                 data-toggle="tab"
                 href="#login"
                 role="tab"
                 aria-controls="login"
                 aria-selected="true"
                 >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="signup-tab"
+                data-toggle="tab"
+                href="#signup"
+                role="tab"
+                aria-controls="signup"
+                aria-selected="false"
+                >Signup</a
               >
             </li>
           </ul>
@@ -142,7 +154,7 @@
               class="tab-pane fade show active"
               id="login"
               role="tabpanel"
-              aria-labelledby="login-signup-toggle"
+              aria-labelledby="login-tab"
             >
               <!-- Login Form -->
               <form
@@ -157,7 +169,7 @@
                     class="form-control"
                     id="Email"
                     name="email"
-                    placeholder="Enter Email"
+                    placeholder="Enter email"
                     required
                   />
                 </div>
@@ -187,7 +199,7 @@
               class="tab-pane fade"
               id="signup"
               role="tabpanel"
-              aria-labelledby="login-signup-toggle"
+              aria-labelledby="signup-tab"
             >
               <!-- Signup Form -->
               <form
@@ -259,24 +271,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const toggleButton = document.getElementById("login-signup-toggle");
-        const loginForm = document.getElementById("login");
-        const signupForm = document.getElementById("signup");
-
-        toggleButton.addEventListener("click", function () {
-          if (loginForm.classList.contains("show")) {
-            loginForm.classList.remove("show");
-            signupForm.classList.add("show");
-            toggleButton.textContent = "Signup";
-          } else {
-            signupForm.classList.remove("show");
-            loginForm.classList.add("show");
-            toggleButton.textContent = "Login";
-          }
-        });
-      });
-    </script>
+    <script></script>
   </body>
 </html>
