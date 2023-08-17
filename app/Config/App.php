@@ -408,7 +408,7 @@ class App extends BaseConfig
      *
      * @deprecated Use `Config\Security` $redirect property instead of using this property.
      */
-    public bool $CSRFRedirect = false;
+    public bool $CSRFRedirect = true;
 
     /**
      * --------------------------------------------------------------------------

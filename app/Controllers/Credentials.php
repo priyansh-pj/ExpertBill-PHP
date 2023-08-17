@@ -29,7 +29,6 @@ class Credentials extends BaseController
     }
     public function register()
     {
-        $_POST['name'] = explode(' ', $_POST['name']);
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
         var_dump($_POST);
         die();
