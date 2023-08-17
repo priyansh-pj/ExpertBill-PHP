@@ -209,12 +209,25 @@
                 action="<?= base_url('Credentials/Register') ?>"
                 method="post"
               >
+              <?= csrf_field() ?>
+                <div class="form-group">
+                  <label for="Username">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Username"
+                    name="username"
+                    placeholder="Username"
+                    required
+                  />
+                </div>
                 <div class="form-group">
                   <label for="FirstName">First Name</label>
                   <input
                     type="text"
                     class="form-control"
                     id="FirstName"
+                    name="first_name"
                     placeholder="Enter your First name"
                     required
                   />
@@ -223,6 +236,7 @@
                     type="text"
                     class="form-control"
                     id="LastName"
+                    name="last_name"
                     placeholder="Enter your Last name"
                     required
                   />
