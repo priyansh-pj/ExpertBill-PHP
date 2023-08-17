@@ -5,6 +5,8 @@
     <title>ExpertBill</title>
     <meta name="description" content="Experts options for Billing" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <!-- Set Content Security Policy meta tag -->
+     
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -44,15 +46,24 @@
         clip-path: polygon(0 0, 100% 0%, 100% 75%, 0% 100%);
         z-index: -1;
       }
-
       .card-header {
-        color: white;
-        text-align: center;
-        padding: 3rem 2rem;
-        position: relative;
-        z-index: 2;
-      }
+    color: white;
+    text-align: center;
+    padding: 1.5rem 2rem; /* Reduced padding for smaller heading */
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column; /* Change to column direction */
+    align-items: center;
+}
 
+.toggle-container {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center;
+    margin-top: 0.5rem; /* Adjust margin if needed */
+    margin-bottom: 0.5rem; /* Adjust margin if needed */
+}
       .nav-tabs .nav-link {
         color: #ffffff;
         font-weight: bold;
@@ -113,6 +124,64 @@
       #forgotPasswordLink:hover {
         color: #ffd700;
       }
+
+       
+
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-right: 10px;
+        }
+
+        .custom-switch input {
+            display: none;
+        }
+
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: #fff;
+        transition: 0.4s;
+        border-radius: 50%;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3; /* Blue color when checked */
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+        background-color: #ffd700; /* Yellow color when checked */
+    }
+
+
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
     </style>
   </head>
   <body>
@@ -120,33 +189,18 @@
       class="container-fluid bg-dark vh-100 d-flex align-items-center justify-content-center"
     >
       <div class="card p-0">
+       
         <div class="card-header bg-primary text-white text-center">
-          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                id="login-tab"
-                data-toggle="tab"
-                href="#login"
-                role="tab"
-                aria-controls="login"
-                aria-selected="true"
-                >Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                id="signup-tab"
-                data-toggle="tab"
-                href="#signup"
-                role="tab"
-                aria-controls="signup"
-                aria-selected="false"
-                >Signup</a
-              >
-            </li>
-          </ul>
+    
+    <div class="toggle-container">
+                <label class="custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="toggleSwitch">
+                    <span class="slider round"></span>
+                </label>
+                <label class="form-check-label">Switch to Signup</label>
+            </div>
+
+
         </div>
         <div class="card-body">
           <div class="tab-content" id="myTabContent">
@@ -197,96 +251,74 @@
                 >Forgot password?</a
               >
             </div>
-            <div
-              class="tab-pane fade"
-              id="signup"
-              role="tabpanel"
-              aria-labelledby="signup-tab"
-            >
-              <!-- Signup Form -->
-              <form
-                id="signupForm"
-                action="<?= base_url('Credentials/Register') ?>"
-                method="post"
-              >
-              <?= csrf_field() ?>
-                <div class="form-group">
-                  <label for="Username">Username</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="Username"
-                    name="username"
-                    placeholder="Username"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="FirstName">First Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="FirstName"
-                    name="first_name"
-                    placeholder="Enter your First name"
-                    required
-                  />
-                  <label for="LastName">Last Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="LastName"
-                    name="last_name"
-                    placeholder="Enter your Last name"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="Email">Email address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="Email"
-                    name="email"
-                    placeholder="email@email.com"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="Contact">Contact Number</label>
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="Contact"
-                    name="contact_number"
-                    placeholder="Contact Number"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="Password">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="Password"
-                    name="password"
-                    placeholder="Password"
-                    required
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                  Signup
-                </button>
-              </form>
+            
+              <!-- ... Rest of your HTML code ... -->
+
+<div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+    <!-- Signup Form -->
+    <form id="signupForm" action="<?= base_url('Credentials/Register') ?>" method="post">
+        <?= csrf_field() ?>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Username">Username</label>
+            <input type="text" class="form-control" id="Username" name="username" placeholder="Username" required />
+        </div>
+        
+            <div class="form-group col-md-6">
+                <label for="FirstName">First Name</label>
+                <input type="text" class="form-control" id="FirstName" name="first_name" placeholder="Enter your First name" required />
             </div>
+      </div>
+      <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="LastName">Last Name</label>
+                <input type="text" class="form-control" id="LastName" name="last_name" placeholder="Enter your Last name" required />
+            </div>
+            <div class="form-group col-md-6 ">
+            <label for="Email">Email address</label>
+            <input type="email" class="form-control" id="Email" name="email" placeholder="email@email.com" required />
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Contact">Contact Number</label>
+            <input type="tel" class="form-control" id="Contact" name="contact_number" placeholder="Contact Number" required />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" id="Password" name="password" placeholder="Password" required />
+        </div>
+      </div>
+        <button type="submit" class="btn btn-primary btn-block">Signup</button>
+    </form>
+</div>
+
+<!-- ... Rest of your HTML code ... -->
+
           </div>
         </div>
       </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+        const toggleSwitch = document.getElementById('toggleSwitch');
+        const loginForm = document.getElementById('login');
+        const signupForm = document.getElementById('signup');
+        const toggleLabel = document.querySelector('.form-check-label');
+
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                loginForm.classList.remove('show', 'active');
+                signupForm.classList.add('show', 'active');
+                toggleLabel.textContent = 'Switch to Login'; // Change label text
+            } else {
+                signupForm.classList.remove('show', 'active');
+                loginForm.classList.add('show', 'active');
+                toggleLabel.textContent = 'Switch to Signup'; // Change label text
+            }
+        });
+    </script>
   </body>
 </html>
