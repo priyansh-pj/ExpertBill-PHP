@@ -18,7 +18,8 @@ class Credentials_model extends Model
     }
     public function register_user($data)
     {
-        $query = "INSERT INTO user_credentials (username, first_name, last_name, email, contact_no ,password) VALUES(?, ?, ?, ?, ?)";
+        $query = "INSERT INTO user_credentials (username, first_name, last_name, email, contact_no ,password) VALUES(?, ?, ?, ?, ?, ?)";
         $this->db->query($query, [$data['username'], $data['first_name'], $data['last_name'], $data['email'], $data['contact_number'], $data['password']]);
+        return "Succes";
     }
 }

@@ -37,10 +37,13 @@ class Credentials extends BaseController
     public function register()
     {
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        // var_dump($_POST);
-        // die();
-        $this->credentials_model->register_user($_POST);
+
+        // $this->credentials_model->register_user($_POST);
+        $deubg = $this->credentials_model->register_user($_POST);
+
         $this->session->set(["password_check" => true, "profile" => ($this->credentials_model->get_profile($_POST['email']))]);
+        var_dump($deubg);
+        die();
         // return redirect()->to(base_url('databliss/organization_verify/' . $_POST['username']));
     }
 }
