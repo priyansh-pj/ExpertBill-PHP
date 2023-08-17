@@ -111,7 +111,6 @@
             color: #ffd700;
         }
     </style>
-    
 </head>
 <body>
     <div class="container-fluid bg-dark vh-100 d-flex align-items-center justify-content-center">
@@ -131,6 +130,8 @@
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <!-- Login Form -->
                         <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>" method="post">
+                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
+
                             <div class="form-group">
                                 <label for="loginEmail">Email</label>
                                 <input type="email" class="form-control" id="loginEmail" name='email' placeholder="Enter email" required>
@@ -170,23 +171,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // JavaScript code for form validation, tab switching, and other necessary functionalities
-        $(document).ready(function() {
-            $("#loginForm").submit(function(event) {
-                // event.preventDefault();
-                // Validate login form and perform login action
-            });
-
-            $("#signupForm").submit(function(event) {
-                // event.preventDefault();
-                // Validate signup form and perform signup action
-            });
-
-            $("#forgotPasswordLink").click(function(event) {
-                // event.preventDefault();
-                // Implement forgot password functionality
-            });
-        });
+        
     </script>
 </body>
 </html>
