@@ -173,17 +173,17 @@
         // JavaScript code for form validation, tab switching, and other necessary functionalities
         $(document).ready(function() {
             $("#loginForm").submit(function(event) {
-                event.preventDefault();
+                // event.preventDefault();
                 // Validate login form and perform login action
             });
 
             $("#signupForm").submit(function(event) {
-                event.preventDefault();
+                // event.preventDefault();
                 // Validate signup form and perform signup action
             });
 
             $("#forgotPasswordLink").click(function(event) {
-                event.preventDefault();
+                // event.preventDefault();
                 // Implement forgot password functionality
             });
         });
