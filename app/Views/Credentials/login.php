@@ -130,15 +130,14 @@
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <!-- Login Form -->
                         <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>" method="post">
-                            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
-
+                        
                             <div class="form-group">
-                                <label for="loginEmail">Email</label>
-                                <input type="email" class="form-control" id="loginEmail" name='email' placeholder="Enter email" required>
+                                <label for="Email">Email</label>
+                                <input type="email" class="form-control" id="Email" name='email' placeholder="Enter Email" required>
                             </div>
                             <div class="form-group">
-                                <label for="loginPassword">Password</label>
-                                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                                <label for="Password">Password</label>
+                                <input type="password" class="form-control" id="Password" name="password" placeholder="Password" required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </form>
@@ -146,18 +145,24 @@
                     </div>
                     <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
                         <!-- Signup Form -->
-                        <form id="signupForm">
+                        <form id="signupForm" action="<?= base_url('Credentials/Register') ?>" method="post">
                             <div class="form-group">
-                                <label for="signupName">Full Name</label>
-                                <input type="text" class="form-control" id="signupName" placeholder="Enter your full name" required>
+                                <label for="FirstName">First Name</label>
+                                <input type="text" class="form-control" id="FirstName" placeholder="Enter your First name" required>
+                                <label for="LastName">Last Name</label>
+                                <input type="text" class="form-control" id="LastName" placeholder="Enter your Last name" required>
                             </div>
                             <div class="form-group">
-                                <label for="signupEmail">Email address</label>
-                                <input type="email" class="form-control" id="signupEmail" placeholder="Enter email" required>
+                                <label for="Email">Email address</label>
+                                <input type="email" class="form-control" id="Email" name="email" placeholder="email@email.com" required>
                             </div>
                             <div class="form-group">
-                                <label for="signupPassword">Password</label>
-                                <input type="password" class="form-control" id="signupPassword" placeholder="Password" required>
+                                <label for="Contact">Contact Number</label>
+                                <input type="tel" class="form-control" id="Contact" name="contact_number" placeholder="Contact Number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password</label>
+                                <input type="password" class="form-control" id="Password" name="password" placeholder="Password" required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Signup</button>
                         </form>
