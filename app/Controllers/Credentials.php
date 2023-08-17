@@ -18,8 +18,6 @@ class Credentials extends BaseController
 
     public function login_check()
     {
-        var_dump("running");
-        die();
         $encryption = \Config\Services::encryption();
         $hash = ($this->credentials_model->get_hash($_POST['email']))->password;
         if (!empty($hash) && password_verify($_POST['password'], $hash)) {
