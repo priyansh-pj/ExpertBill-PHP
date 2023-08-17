@@ -133,7 +133,7 @@
                         <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>" method="post">
                             <div class="form-group">
                                 <label for="loginEmail">Email</label>
-                                <input type="email" class="form-control" id="loginEmail" placeholder="Enter email" required>
+                                <input type="email" class="form-control" id="loginEmail" name='email' placeholder="Enter email" required>
                             </div>
                             <div class="form-group">
                                 <label for="loginPassword">Password</label>
