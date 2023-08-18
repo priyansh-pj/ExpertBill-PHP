@@ -22,7 +22,7 @@ class Credentials extends BaseController
         $hash = ($this->credentials_model->get_hash($_POST['email']));
         if (!empty($hash) && password_verify($_POST['password'], $hash)) {
             $this->session->set(["password_check" => true, "profile" => ($this->credentials_model->get_profile($_POST['email']))]);
-            return redirect()->to(base_url('databliss/organization_verify/' . $_POST['username']));
+            return redirect()->to(base_url('organization_verify/', 'refresh'));
         } else {
             echo ("<script>alert('Credentials Doesn't Exist. Please Reverify Details'');</script>");
             return redirect()->to(base_url());
@@ -31,10 +31,35 @@ class Credentials extends BaseController
     public function register()
     {
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
         $this->credentials_model->register_user($_POST);
         $this->session->set(["password_check" => true, "profile" => ($this->credentials_model->get_profile($_POST['email']))]);
+        return redirect()->to(base_url('organization_verify/', 'refresh'));
+    }
 
-        // return redirect()->to(base_url('databliss/organization_verify/' . $_POST['username']));
+    public function organization_verify()
+    {
+        var_dump($this->session->get());
+        die();
+        if ($this->session->get("password_check")) {
+            $organizations = ($this->credentials_model->get_organization($username))[0]->organization_id;
+            $data['organization'] = ($organizations) ? explode(",", $organizations) : [];
+            // print_r ($organizations);
+            // die();
+            if (!empty($data['organization'])) {
+                $data['organization'] = $this->credentials_model->get_name($organizations);
+            }
+
+            $data['profile'] = $this->session->get('profile');
+            $data['title'] = 'Organization';
+            $this->session->set(['role' => ""]);
+            $data['role'] = "";
+            // var_dump($data);
+            // die();
+            echo view('Templates/header', $data);
+            echo view('Credentials/organization_select', $data);
+            echo view('Templates/footer');
+        } else {
+            redirect(base_url("databliss/login"));
+        }
     }
 }

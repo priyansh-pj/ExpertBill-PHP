@@ -18,14 +18,22 @@ class Credentials_model extends Model
     public function get_profile($email)
     {
         $query = "SELECT uid,username,first_name,last_name,email,contact_no FROM user_credentials WHERE email = ?";
-        $result = $this->db->query($query, [$email])->getResult()[0];
+        $result = $this->db->query($query, [$email])->getResult();
         return empty($result) ? [] : $result[0];
 
     }
     public function register_user($data)
     {
-        $query = "INSERT INTO user_credentials (username, first_name, last_name, email, contact_no ,password) VALUES(?, ?, ?, ?, ?, ?)";
+        $this->db->trans_start();
+
+        $query = "INSERT INTO user_credentials (username, first_name, last_name, email, contact_no, password) VALUES (?, ?, ?, ?, ?, ?)";
         $this->db->query($query, [$data['username'], $data['first_name'], $data['last_name'], $data['email'], $data['contact_number'], $data['password']]);
-        return "Succes";
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            $this->db->trans_commit();
+        }
     }
+
 }
