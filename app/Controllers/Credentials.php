@@ -38,23 +38,19 @@ class Credentials extends BaseController
 
     public function organization_verify()
     {
-        var_dump($this->session->get());
-        die();
         if ($this->session->get("password_check")) {
-            $organizations = ($this->credentials_model->get_organization($username))[0]->organization_id;
-            $data['organization'] = ($organizations) ? explode(",", $organizations) : [];
-            // print_r ($organizations);
-            // die();
+            $organizations = $this->session->get($this->session->get());
+            $data['organization'] = ($organizations) ? explode("|", $organizations) : [];
             if (!empty($data['organization'])) {
-                $data['organization'] = $this->credentials_model->get_name($organizations);
+                $data['organization'] = $this->credentials_model->organization_name($organizations);
             }
 
             $data['profile'] = $this->session->get('profile');
             $data['title'] = 'Organization';
             $this->session->set(['role' => ""]);
             $data['role'] = "";
-            // var_dump($data);
-            // die();
+            var_dump($data);
+            die();
             echo view('Templates/header', $data);
             echo view('Credentials/organization_select', $data);
             echo view('Templates/footer');
