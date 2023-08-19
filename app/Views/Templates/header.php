@@ -360,8 +360,8 @@
         <div class="admin-user tooltip-element" data-tooltip="1">
           <div class="admin-profile hide">
             <div class="admin-info">
-              <h3><? $profile['username'] ?></h3>
-              <h5><? $role ?></h5>
+              <h3><?= $profile['username'] ?></h3>
+              <h5><?= $role ?></h5>
             </div>
           </div>
           <a href="#" class="settings"><i class="bx bx-cog"></i></a>
