@@ -29,10 +29,13 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Credentials::Login');
-$routes->post('/Credentials/login_check', 'Credentials::login_check');
-$routes->post('/Credentials/Register', 'Credentials::register');
-$routes->get('/organization_verify', 'Credentials::organization_verify');
+$routes->get('/', 'Credentials::login');
+$routes->post('/Register', 'Credentials::register');
+$routes->get('/logout', 'Credentials::logout');
+
+$routes->post('/Credentials/credential_validation', 'Credentials::credential_validation');
+
+$routes->get('/Organizations', 'Credentials::organization_choice');
 
 
 /*

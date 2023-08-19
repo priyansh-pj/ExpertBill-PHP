@@ -24,21 +24,20 @@ class Credentials_model extends Model
     }
     public function register_user($data)
     {
-        $this->db->trans_start();
-
+        $this->db->transStart();
         $query = "INSERT INTO user_credentials (username, first_name, last_name, email, contact_no, password) VALUES (?, ?, ?, ?, ?, ?)";
         $this->db->query($query, [$data['username'], $data['first_name'], $data['last_name'], $data['email'], $data['contact_number'], $data['password']]);
-        if ($this->db->trans_status() === FALSE) {
-            $this->db->trans_rollback();
+        if ($this->db->transStatus() === FALSE) {
+            $this->db->transRollback();
             return false;
         } else {
-            $this->db->trans_commit();
+            $this->db->transCommit();
         }
     }
 
     public function organization_name($organization)
     {
-        $query = "SELECT organization_id, organization_name FROM organisation WHERE organization_id IN ($organization)";
+        $query = "SELECT id, name FROM organization WHERE id IN ($organization)";
         return $this->db->query($query)->getResult();
     }
 
