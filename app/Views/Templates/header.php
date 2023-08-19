@@ -7,7 +7,7 @@
   <meta name="description" content="Expert options for Billing">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
-  <link rel="stylesheet" href="../../../writable/assets/templates/style_header.css">
+  <link rel="stylesheet" href="<?= base_url('style/style_header.css') ?>">
 </head>
 <body>
   <nav class="sidebar">
