@@ -36,6 +36,7 @@ $routes->get('/logout', 'Credentials::logout');
 $routes->post('/Credentials/credential_validation', 'Credentials::credential_validation');
 
 $routes->get('/Organizations', 'Credentials::organization_choice');
+// $routes->get('/Organization/make', 'Credentials::organization_make');
 
 
 /*

@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN' => '',
-        'hostname' => '154.41.233.204',
-        'username' => 'u516012949_BillingExperts',
-        'password' => 'DataBliss$08',
-        'database' => 'u516012949_ExpertBill',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'expertbill',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

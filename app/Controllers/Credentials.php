@@ -31,7 +31,6 @@ class Credentials extends BaseController
     {
         $encryption = \Config\Services::encryption();
         $hash = ($this->credentials_model->get_hash($_POST['email']));
-
         if (!empty($hash) && password_verify($_POST['password'], $hash)) {
             $this->session->set([
                 "password_check" => true,
@@ -71,6 +70,8 @@ class Credentials extends BaseController
             $data['title'] = 'Organizations';
             $data['role'] = "";
 
+            echo "<pre>";var_dump($data);die();
+
             // echo view('Templates/header', $data);  //$profile, $title
             // echo view('Credentials/organization_select', $data); //$organizations[]
             // echo view('Templates/footer');
@@ -78,7 +79,26 @@ class Credentials extends BaseController
             return redirect()->to(base_url(''));
         }
     }
-
+    public function organization_make(){
+        $data['profile'] = ($this->session->get('profile'));
+        $data['title'] = 'Create Organization';
+        $data['role'] = "";
+        echo view('Templates/header',$data);
+        echo view('Credentials/organization_make');
+        echo view('Templates/footer');
+    }
     //verified
+    public function organization_create(){
+        var_dump()
+        $this->credentials_model->insert_organization($_POST);
+        $org_id = $this->credentials_model->find_org_id($_POST)[0]->organization_id;
+        $uid = $this->session->get('uid');
+        $prev_org_id = ($this->credentials_model->create_organization_role($org_id,$uid)[0]->organization_id) ? $this->credentials_model->create_organization_role($org_id,$uid)[0]->organization_id : "";
+        $this->credentials_model->set_up_new_organization($org_id);
+        $org_id = empty($prev_org_id) ? "$org_id" : "$prev_org_id".","."$org_id";
+        $this->credentials_model->update_organization($org_id,$uid);
+        return redirect()->to(base_url('databliss/organization_verify/'.$this->session->get('username')));
+    }
+    
 
 }

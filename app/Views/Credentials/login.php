@@ -209,7 +209,7 @@
               <!-- Login Form -->
               <form
                 id="loginForm"
-                action="<?= base_url('Credentials/login_check') ?>"
+                action="<?= base_url('Credentials/credential_validation') ?>"
                 method="post"
               >
                 <?= csrf_field() ?>
@@ -259,7 +259,7 @@
               <!-- Signup Form -->
               <form
                 id="signupForm"
-                action="<?= base_url('Credentials/Register') ?>"
+                action="<?= base_url('Register') ?>"
                 method="post"
               >
                 <?= csrf_field() ?>
