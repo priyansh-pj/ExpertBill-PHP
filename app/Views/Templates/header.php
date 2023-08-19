@@ -42,316 +42,323 @@
           </div>
         </ul>
         <hr />
-        <? if (str_contains($role, 'Accountant')) { ?>
-        <h4 class="hide">Accountant</h4>
-        <ul>
-          <li class="tooltip-element" data-tooltip="0">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Billing</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="1">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Billing History</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="2">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Quotation</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="3">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Quotation History</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="4">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Invoices</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="5">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Invoices History</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="6">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Expense</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="7">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Expense History</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="8">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Inventory</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="9">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Customer Details</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="10">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Supplier Details</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="11">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Accounts</span>
-            </a>
-          </li>
+        <? if (str_contains($role, 'ACCOUNTANT')) { ?>
+              <h4 class="hide">Accountant</h4>
+              <ul>
+                <li class="tooltip-element" data-tooltip="0">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-notepad"></i>
+                      <i class="bx bxs-notepad"></i>
+                    </div>
+                    <span class="link hide">Billing</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="1">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-notepad"></i>
+                      <i class="bx bxs-notepad"></i>
+                    </div>
+                    <span class="link hide">Billing History</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="2">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-notepad"></i>
+                      <i class="bx bxs-notepad"></i>
+                    </div>
+                    <span class="link hide">Quotation</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="3">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-notepad"></i>
+                      <i class="bx bxs-notepad"></i>
+                    </div>
+                    <span class="link hide">Quotation History</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="4">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-cog"></i>
+                      <i class="bx bxs-cog"></i>
+                    </div>
+                    <span class="link hide">Invoices</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="5">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-cog"></i>
+                      <i class="bx bxs-cog"></i>
+                    </div>
+                    <span class="link hide">Invoices History</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="6">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-notepad"></i>
+                      <i class="bx bxs-notepad"></i>
+                    </div>
+                    <span class="link hide">Expense</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="7">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-notepad"></i>
+                      <i class="bx bxs-notepad"></i>
+                    </div>
+                    <span class="link hide">Expense History</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="8">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-cog"></i>
+                      <i class="bx bxs-cog"></i>
+                    </div>
+                    <span class="link hide">Inventory</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="9">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-cog"></i>
+                      <i class="bx bxs-cog"></i>
+                    </div>
+                    <span class="link hide">Customer Details</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="10">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-cog"></i>
+                      <i class="bx bxs-cog"></i>
+                    </div>
+                    <span class="link hide">Supplier Details</span>
+                  </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="11">
+                  <a href="#">
+                    <div class="icon">
+                      <i class="bx bx-cog"></i>
+                      <i class="bx bxs-cog"></i>
+                    </div>
+                    <span class="link hide">Accounts</span>
+                  </a>
+                </li>
 
-          <div class="tooltip">
-            <span class="show">Billing</span>
-            <span>Billing History</span>
-            <span>Quotation</span>
-            <span>Quotation History</span>
-            <span>Invoices</span>
-            <span>Invoices History</span>
-            <span>Expense</span>
-            <span>Expense History</span>
-            <span>Inventory</span>
-            <span>Customer Details</span>
-            <span>Supplier Details</span>
-            <span>Accounts</span>
-          </div>
-        </ul>
+                <div class="tooltip">
+                  <span class="show">Billing</span>
+                  <span>Billing History</span>
+                  <span>Quotation</span>
+                  <span>Quotation History</span>
+                  <span>Invoices</span>
+                  <span>Invoices History</span>
+                  <span>Expense</span>
+                  <span>Expense History</span>
+                  <span>Inventory</span>
+                  <span>Customer Details</span>
+                  <span>Supplier Details</span>
+                  <span>Accounts</span>
+                </div>
+              </ul>
         <? } ?>
-        <h4 class="hide">sales</h4>
-        <ul>
-          <li class="tooltip-element" data-tooltip="0">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Billing</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="1">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Billing History</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="2">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Quotation</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="3">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Quotation History</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="4">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Invoices</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="5">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Invoices History</span>
-            </a>
-          </li>
+        <? if (str_contains($role, 'SALES')) { ?>
+          <h4 class="hide">sales</h4>
+          <ul>
+            <li class="tooltip-element" data-tooltip="0">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Billing</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Billing History</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="2">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Quotation</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="3">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Quotation History</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="4">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-cog"></i>
+                  <i class="bx bxs-cog"></i>
+                </div>
+                <span class="link hide">Invoices</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="5">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-cog"></i>
+                  <i class="bx bxs-cog"></i>
+                </div>
+                <span class="link hide">Invoices History</span>
+              </a>
+            </li>
 
-          <div class="tooltip">
-            <span class="show">Billing</span>
-            <span>Billing History</span>
-            <span>Quotation</span>
-            <span>Quotation History</span>
-            <span>Invoices</span>
-            <span>Invoices History</span>
-          </div>
-        </ul>
-        <h4 class="hide">Analyst</h4>
-        <ul>
-          <li class="tooltip-element" data-tooltip="0">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Predictive Analytics</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="1">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Optimization</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="2">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Demand Forecasting</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="3">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Employee Management</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="4">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Sentiment Analysis</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="5">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-cog"></i>
-                <i class="bx bxs-cog"></i>
-              </div>
-              <span class="link hide">Risk Assessment</span>
-            </a>
-          </li>
-          <div class="tooltip">
-            <span>Predictive Analytics</span>
-            <span>Demand Forecasting</span>
-            <span>Employee Management</span>
-            <span>Sentiment Analysis</span>
-            <span>Risk Assessment</span>
-          </div>
-        </ul>
-        <h4 class="hide">Human Resources</h4>
-        <ul>
-          <li class="tooltip-element" data-tooltip="0">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Manage Employee</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="1">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Add Employee</span>
-            </a>
-          </li>
-          <div class="tooltip">
-            <span class="show">Manage Employee</span>
-            <span>Add Employee</span>
-          </div>
-        </ul>
-        <h4 class="hide">Supervisor</h4>
-        <ul>
-          <li class="tooltip-element" data-tooltip="0">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Manifacture Parts</span>
-            </a>
-          </li>
-          <li class="tooltip-element" data-tooltip="1">
-            <a href="#">
-              <div class="icon">
-                <i class="bx bx-notepad"></i>
-                <i class="bx bxs-notepad"></i>
-              </div>
-              <span class="link hide">Inventory</span>
-            </a>
-          </li>
-          <div class="tooltip">
-            <span class="show">Manifacture Parts</span>
-            <span>Inventory</span>
-          </div>
-        </ul>
-      </div>
-
+            <div class="tooltip">
+              <span class="show">Billing</span>
+              <span>Billing History</span>
+              <span>Quotation</span>
+              <span>Quotation History</span>
+              <span>Invoices</span>
+              <span>Invoices History</span>
+            </div>
+          </ul>
+        <? } ?>
+        <? if (str_contains($role, 'ANALYST')) { ?>
+          <h4 class="hide">Analyst</h4>
+          <ul>
+            <li class="tooltip-element" data-tooltip="0">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Predictive Analytics</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Optimization</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="2">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Demand Forecasting</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="3">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Employee Management</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="4">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-cog"></i>
+                  <i class="bx bxs-cog"></i>
+                </div>
+                <span class="link hide">Sentiment Analysis</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="5">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-cog"></i>
+                  <i class="bx bxs-cog"></i>
+                </div>
+                <span class="link hide">Risk Assessment</span>
+              </a>
+            </li>
+            <div class="tooltip">
+              <span>Predictive Analytics</span>
+              <span>Demand Forecasting</span>
+              <span>Employee Management</span>
+              <span>Sentiment Analysis</span>
+              <span>Risk Assessment</span>
+            </div>
+          </ul>
+        <? } ?>
+        <? if (str_contains($role, 'HR')) { ?>
+          <h4 class="hide">Human Resources</h4>
+          <ul>
+            <li class="tooltip-element" data-tooltip="0">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Manage Employee</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Add Employee</span>
+              </a>
+            </li>
+            <div class="tooltip">
+              <span class="show">Manage Employee</span>
+              <span>Add Employee</span>
+            </div>
+          </ul>
+        <? } ?>
+        <? if (str_contains($role, 'SUPERVISOR')) { ?>
+          <h4 class="hide">Supervisor</h4>
+          <ul>
+            <li class="tooltip-element" data-tooltip="0">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Manifacture Parts</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+              <a href="#">
+                <div class="icon">
+                  <i class="bx bx-notepad"></i>
+                  <i class="bx bxs-notepad"></i>
+                </div>
+                <span class="link hide">Inventory</span>
+              </a>
+            </li>
+            <div class="tooltip">
+              <span class="show">Manifacture Parts</span>
+              <span>Inventory</span>
+            </div>
+          </ul>
+        </div>
+      <? } ?>
       <div class="sidebar-footer">
         <a href="#" class="account tooltip-element" data-tooltip="0"
           ><i class="bx bx-user"></i
@@ -372,5 +379,4 @@
     <main>
       <div class="path-header"><?= $title ?></div>
     </main>
-  </body>
-</html>
+
