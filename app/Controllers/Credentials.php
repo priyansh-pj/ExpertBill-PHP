@@ -48,11 +48,12 @@ class Credentials extends BaseController
             $data['title'] = 'Organization';
             $this->session->set(['role' => ""]);
             $data['role'] = "";
+
+            echo view('Templates/header', $data);
+            // echo view('Credentials/organization_select', $data);
             echo "<pre>";
             var_dump($data);
-            die();
-            echo view('Templates/header', $data);
-            echo view('Credentials/organization_select', $data);
+            // die();
             echo view('Templates/footer');
         } else {
             redirect(base_url("databliss/login"));
