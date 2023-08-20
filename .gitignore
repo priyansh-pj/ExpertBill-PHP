@@ -1,18 +1,18 @@
 
-.env
-composer.lock
-env.php
+# .env
+# composer.lock
+# env.php
 
-node_modules/
-vendor/
-writable/
+# node_modules/
+# vendor/
+# writable/
 .idea/
 .vscode/
-tests/
-doc/
+# tests/
+# doc/
 
-app/Config/
+# app/Config/
 
-app/Cache/
-app/Session/
+# # app/Cache/
+# app/Session/
 /.DS_Store
