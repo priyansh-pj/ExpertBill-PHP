@@ -1,19 +1,18 @@
-# Ignore sensitive configuration files
+
 .env
-app/Config/App.php
-app/Config/Database.php
-
-# Ignore generated files and directories
-writable/
-public/index.php
 composer.lock
+env.php
 
-# Ignore system files and directories
-system/*
-!system/README.md
-system/third_party/
-system/tests/
-system/translations/
+node_modules/
+vendor/
+writable/
+.idea/
+.vscode/
+tests/
+doc/
 
-# Ignore build artifacts
-/build/
+app/Config/
+
+app/Cache/
+app/Session/
+/.DS_Store
