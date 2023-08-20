@@ -13,8 +13,9 @@ class Credentials extends BaseController
     }
     public function login()
     {
+        $session = $this->session->get();
         var_dump($this->session->getFlashdata('Login'));
-        if ($this->session->get("password_check")) {
+        if ($session["password_check"]) {
             // return redirect()->to(base_url('Organizations/','refresh'));
             return redirect()->to(base_url('Organizations/'));
         }
@@ -58,19 +59,18 @@ class Credentials extends BaseController
 
     public function organization_choice()
     {
-        if ($this->session->get("password_check")) {
-            $data['organizations'] = str_replace('|', ',', trim($this->session->get('profile')->organization_id,'|'));
+        $session = $this->session->get();
+        if ($session["password_check"]) {
+            $data['organizations'] = str_replace('|', ',', trim($session["profile"]->organization_id, '|'));
             if (!empty($data['organizations'])) {
                 $data['organizations'] = $this->credentials_model->organization_name($data['organizations']);
             }
-
+            $this->session->set(['organization' => ""]);
             $this->session->set(['role' => ""]);
 
-            $data['profile'] = $this->session->get('profile');
+            $data['profile'] = $session["profile"];
             $data['title'] = 'Organizations';
             $data['role'] = "";
-
-            echo "<pre>";var_dump($data);die();
 
             // echo view('Templates/header', $data);  //$profile, $title
             // echo view('Credentials/organization_select', $data); //$organizations[]
@@ -79,26 +79,61 @@ class Credentials extends BaseController
             return redirect()->to(base_url(''));
         }
     }
-    public function organization_make(){
-        $data['profile'] = ($this->session->get('profile'));
-        $data['title'] = 'Create Organization';
-        $data['role'] = "";
-        echo view('Templates/header',$data);
-        echo view('Credentials/organization_make');
-        echo view('Templates/footer');
+    public function organization_make()
+    {
+        $session = $this->session->get();
+        if ($session["password_check"]) {
+            $data['profile'] = $session["profile"];
+            $data['title'] = 'Create Organization';
+            $data['role'] = "";
+            // echo view('Templates/header',$data);
+            echo view('Organization/organization_make');
+            // echo view('Templates/footer');
+        } else {
+            return redirect()->to(base_url(''));
+        }
+
     }
     //verified
-    public function organization_create(){
-        var_dump()
-        $this->credentials_model->insert_organization($_POST);
-        $org_id = $this->credentials_model->find_org_id($_POST)[0]->organization_id;
-        $uid = $this->session->get('uid');
-        $prev_org_id = ($this->credentials_model->create_organization_role($org_id,$uid)[0]->organization_id) ? $this->credentials_model->create_organization_role($org_id,$uid)[0]->organization_id : "";
-        $this->credentials_model->set_up_new_organization($org_id);
-        $org_id = empty($prev_org_id) ? "$org_id" : "$prev_org_id".","."$org_id";
-        $this->credentials_model->update_organization($org_id,$uid);
-        return redirect()->to(base_url('databliss/organization_verify/'.$this->session->get('username')));
-    }
-    
+    public function organization_create()
+    {
+        $session = $this->session->get();
+        if ($session["password_check"]) {
+            $sessionProfile = $session["profile"];
+            $organization_id = $this->credentials_model->organization_create($_POST, $sessionProfile);
+            $sessionProfile->organization_id = $organization_id;
+            $this->session->set('profile', $sessionProfile);
 
+            return redirect()->to(base_url('/Organization/verify/' . substr($organization_id, -1)));
+        } else {
+            return redirect()->to(base_url(''));
+        }
+    }
+
+    public function organization_verify($organization_id)
+    {
+        $session = $this->session->get();
+        if ($session['password_check']) {
+            $user_organization = $this->credentials_model->get_organization($session['profile']->uid);
+            if (str_contains($user_organization, $organization_id)) {
+                $this->session->set(['organization' => $organization_id]);
+                $this->session->set(['role' => $this->credentials_model->get_role($organization_id, $session["profile"]->uid)]);
+                return redirect()->to(base_url('Dashboard'));
+            } else {
+                return redirect()->to(base_url('Organizations/'));
+            }
+        } else {
+            return redirect()->to(base_url(''));
+        }
+    }
+
+    public function dashboard()
+    {
+        $session = $this->session->get();
+        if ($session['password_check']) {
+
+        } else {
+            return redirect()->to(base_url(''));
+        }
+    }
 }
