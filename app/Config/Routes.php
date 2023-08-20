@@ -32,6 +32,7 @@ $routes->set404Override();
 $routes->get('/', 'Credentials::Login');
 $routes->post('/Credentials/login_check', 'Credentials::login_check');
 $routes->post('/Credentials/Register', 'Credentials::register');
+$routes->get('/organization_verify', 'Credentials::organization_verify');
 
 
 /*
