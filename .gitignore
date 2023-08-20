@@ -1,0 +1,19 @@
+# Ignore sensitive configuration files
+.env
+app/Config/App.php
+app/Config/Database.php
+
+# Ignore generated files and directories
+writable/
+public/index.php
+composer.lock
+
+# Ignore system files and directories
+system/*
+!system/README.md
+system/third_party/
+system/tests/
+system/translations/
+
+# Ignore build artifacts
+/build/
