@@ -5,368 +5,421 @@
     <title>ExpertBill</title>
     <meta name="description" content="Experts options for Billing" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Set Content Security Policy meta tag -->
 
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
     <style>
-      body {
-        background: #f8f9fa;
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-      .card {
-        border: none;
-        border-radius: 20px;
-        background-color: #ffffff;
-        box-shadow: 0px 40px 80px rgba(0, 0, 0, 0.15);
-        overflow: hidden;
-        width: 90%;
-        max-width: 600px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .card:before {
-        content: "";
-        position: absolute;
-        top: -20%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200%;
-        height: 140%;
-        background: linear-gradient(30deg, #0056b3, #007bff);
-        clip-path: polygon(0 0, 100% 0%, 100% 75%, 0% 100%);
-        z-index: -1;
-      }
-      .card-header {
-        color: white;
-        text-align: center;
-        padding: 1.5rem 2rem; /* Reduced padding for smaller heading */
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column; /* Change to column direction */
-        align-items: center;
-      }
-
-      .toggle-container {
-        display: flex;
-        flex-direction: column; /* Align items vertically */
-        align-items: center;
-        margin-top: 0.5rem; /* Adjust margin if needed */
-        margin-bottom: 0.5rem; /* Adjust margin if needed */
-      }
-      .nav-tabs .nav-link {
-        color: #ffffff;
-        font-weight: bold;
-        border: none;
-        border-radius: 0;
-        transition: color 0.3s;
-      }
-
-      .nav-tabs .nav-link.active {
-        background-color: transparent;
-        color: #ffd700;
-      }
-
-      .form-group label {
-        font-weight: bold;
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        font-size: 25px;
+        line-height: 1.7;
         color: #fff;
+        background-color: #212529;
+        overflow-x: hidden
+    }
 
-        letter-spacing: 0.5px;
-      }
-
-      .form-control {
-        border: none;
-        border-radius: 10px;
-        padding: 1.5rem;
-        background-color: #f8f9fa;
-        color: #333;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .form-control:focus {
-        outline: none;
-      }
-
-      .btn-primary {
-        background-color: #ffd700;
-        border: none;
-        border-radius: 10px;
-        padding: 1.5rem;
-        transition: background-color 0.3s;
-        font-weight: bold;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        width: 100%;
+    a {
         cursor: pointer;
-        box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.4);
-      }
+        transition: all 200ms linear
+    }
 
-      .btn-primary:hover {
-        background-color: #ffd700;
-      }
+    a:hover {
+        text-decoration: none
+    }
 
-      #forgotPasswordLink {
-        color: #ffffff;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
+    .link {
+        color: #fff
+    }
 
-      #forgotPasswordLink:hover {
+    .link:hover {
         color: #ffd700;
-      }
+    }
 
-      .custom-switch {
+    p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.7
+    }
+
+    h4 {
+        font-weight: 600
+    }
+
+    h6 span {
+        padding: 0 20px;
+        text-transform: uppercase;
+        font-weight: 700
+    }
+
+    .section {
         position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-        margin-right: 10px;
-      }
+        width: 100%;
+        display: block
+    }
 
-      .custom-switch input {
-        display: none;
-      }
 
-      .slider {
+    .full-height {
+        min-height: 100vh
+    }
+
+    [type="checkbox"]:checked,
+    [type="checkbox"]:not(:checked) {
         position: absolute;
+        left: -9999px
+    }
+
+    .checkbox:checked+label,
+    .checkbox:not(:checked)+label {
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 60px;
+        height: 16px;
+        border-radius: 2px;
+        padding: 0;
+        margin: 10px auto;
         cursor: pointer;
+        background-color: #ffffff
+    }
+
+    .checkbox:checked+label:before,
+    .checkbox:not(:checked)+label:before {
+        position: absolute;
+        display: block;
+        width: 36px;
+        height: 36px;
+        border-radius: 10%;
+        color: #ffd700;
+        background: linear-gradient(30deg, #0056b3, #007bff);
+        content: '';
+        z-index: 20;
+        font-size: 12px;
+        top: -10px;
+        left: -10px;
+        line-height: 36px;
+        text-align: center;
+        font-size: 24px;
+        transition: all 0.5s ease
+    }
+
+    .checkbox:checked+label:before {
+        transform: translateX(44px) rotate(-270deg)
+    }
+
+    .card-3d-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 440px;
+        height: 460px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        perspective: 800px;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-3d-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: 0.4s;
-        border-radius: 34px;
-      }
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        transition: all 600ms ease-out
+    }
 
-      .slider:before {
+    .login-div {
+        width: 150px
+    }
+
+    .card-front,
+    .card-back {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(30deg, #0056b3, #007bff);
+
         position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
+        border-radius: 0px;
+        left: 0;
+        top: 0;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        backface-visibility: hidden
+    }
+
+    .card-back {
+        transform: rotateY(180deg)
+    }
+
+    .checkbox:checked~.card-3d-wrap .card-3d-wrapper {
+        transform: rotateY(180deg)
+    }
+
+    .center-wrap {
+        position: absolute;
+        width: 100%;
+        padding: 0 20px;
+        top: 50%;
+        left: 0;
+        transform: translate3d(0, -50%, 35px) perspective(100px);
+        z-index: 20;
+        display: block
+    }
+
+    .form-group {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 0
+    }
+
+    .form-style {
+        padding: 12px 16px;
+        padding-left: 45px;
+        height: 48px;
+        width: 100%;
+        font-weight: 500;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
+        outline: none;
+        color: #c4c3ca;
         background-color: #fff;
-        transition: 0.4s;
-        border-radius: 50%;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-      }
+        border: none;
+        transition: all 200ms linear;
+        box-shadow: 0 4px 8px 0 rgba(21, 21, 21, .2)
+    }
 
-      input:checked + .slider {
-        background-color: #2196f3; /* Blue color when checked */
-      }
+    .form-style:focus,
+    .form-style:active {
+        border: none;
+        outline: none;
+        box-shadow: 0 4px 8px 0 rgba(21, 21, 21, .2)
+    }
 
-      input:checked + .slider:before {
-        transform: translateX(26px);
-        background-color: #ffd700; /* Yellow color when checked */
-      }
+    .input-icon {
+        position: absolute;
+        top: 0;
+        left: 18px;
+        height: 48px;
+        font-size: 24px;
+        line-height: 48px;
+        text-align: left;
+        color: #1f2029;
+        transition: all 200ms linear
+    }
 
-      .slider.round {
-        border-radius: 34px;
-      }
+    .form-group input:-ms-input-placeholder {
+        color: #1f2029;
+        opacity: 1;
+        transition: all 200ms linear
+    }
 
-      .slider.round:before {
-        border-radius: 50%;
-      }
+    .form-group input::-moz-placeholder {
+        color: #1f2029;
+        opacity: 0.7;
+        transition: all 200ms linear
+    }
+
+    .form-group input:-moz-placeholder {
+        color: #1f2029;
+        opacity: 0.7;
+        transition: all 200ms linear
+    }
+
+    .form-group input::-webkit-input-placeholder {
+        color: #1f2029;
+        opacity: 0.7;
+        transition: all 200ms linear
+    }
+
+    .form-group input:focus:-ms-input-placeholder {
+        opacity: 0;
+        transition: all 200ms linear
+    }
+
+    .form-group input:focus::-moz-placeholder {
+        opacity: 0;
+        transition: all 200ms linear
+    }
+
+    .form-group input:focus:-moz-placeholder {
+        opacity: 0;
+        transition: all 200ms linear
+    }
+
+    .form-group input:focus::-webkit-input-placeholder {
+        opacity: 0;
+        transition: all 200ms linear
+    }
+
+    .btn {
+        border-radius: 4px;
+        height: 48px;
+        width: 100%;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: all 200ms linear;
+        padding: 0 30px;
+        letter-spacing: 1px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        text-align: center;
+        border: none;
+        background-color: #ffd700;
+        color: #fff;
+        box-shadow: 0 8px 24px 0 rgba(18, 248, 173, .2)
+    }
+
+    .btn:active,
+    .btn:focus {
+        background-color: #fff;
+        color: #ffd700;
+        box-shadow: 0 8px 24px 0 rgba(255, 255, 255, .2)
+    }
+
+    .btn:hover {
+        background-color: #fff;
+        color: #ffd700;
+        box-shadow: 0 8px 24px 0 rgba(255, 255, 255, .2)
+    }
+
+    .logo {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        display: block;
+        z-index: 100;
+        transition: all 250ms linear
+    }
+
+    .logo img {
+        height: 26px;
+        width: auto;
+        display: block
+    }
     </style>
-  </head>
-  <body>
-    <div
-      class="container-fluid bg-dark vh-100 d-flex align-items-center justify-content-center"
-    >
-      <div class="card p-0">
-        <div class="card-header bg-primary text-white text-center">
-          <div class="toggle-container">
-            <label class="custom-switch">
-              <input
-                type="checkbox"
-                class="custom-control-input"
-                id="toggleSwitch"
-              />
-              <span class="slider round"></span>
-            </label>
-            <label class="form-check-label">Switch to Signup</label>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="tab-content" id="myTabContent">
-            <div
-              class="tab-pane fade show active"
-              id="login"
-              role="tabpanel"
-              aria-labelledby="login-tab"
-            >
-              <!-- Login Form -->
-              <form
-                id="loginForm"
-                action="<?= base_url('Credentials/login_check') ?>"
-                method="post"
-              >
-                <?= csrf_field() ?>
+</head>
 
-                <div class="form-group">
-                  <label for="Email">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="Email"
-                    name="email"
-                    placeholder="Enter email"
-                    required
-                  />
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                        <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6> <input class="checkbox"
+                            type="checkbox" id="reg-log" name="reg-log">
+                        <label for="reg-log"></label>
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <!-- Login Form -->
+                                            <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>"
+                                                method="post">
+                                                <?= csrf_field() ?>
+                                                <h4 class="mb-4 pb-3">Log In</h4>
+                                                <div class="form-group">
+                                                    <input type="email" name="logemail" class="form-style"
+                                                        placeholder="Your Email" id="logemail" autocomplete="none"
+                                                        required>
+                                                    <i class="input-icon fa fa-at"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="logpass" class="form-style"
+                                                        placeholder="Your Password" id="logpass" autocomplete="none"
+                                                        required>
+                                                    <i class="input-icon fa fa-lock"></i>
+                                                </div>
+                                                <a href="#" class="btn mt-4">Login</a>
+                                                <p class="mb-0 mt-4 text-center">
+                                                    <a href="#0" class="link">Forgot your password?</a>
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">Sign Up</h4>
+                                            <!-- Signup Form -->
+                                            <form id="signupForm" action="<?= base_url('Credentials/Register') ?>"
+                                                method="post">
+                                                <?= csrf_field() ?>
+
+                                                <div class="form-group">
+                                                    <input type="text" name="logusername" class="form-style"
+                                                        placeholder="Username" id="logusername" autocomplete="none"
+                                                        required>
+                                                    <i class="input-icon fa fa-user"></i>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-6 mt-2">
+                                                            <input type="text" name="fname" class="form-style"
+                                                                placeholder="First Name" id="fname" autocomplete="none"
+                                                                required>
+                                                            <i class="input-icon fa fa-bars"></i>
+                                                        </div>
+
+                                                        <div class="col-md-6 mt-2">
+                                                            <input type="text" name="lname" class="form-style"
+                                                                placeholder="Last Name" id="lname" autocomplete="none"
+                                                                required>
+                                                            <i class="input-icon fa input-icon fa fa-bars"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="email" name="logemail" class="form-style"
+                                                        placeholder="Your Email" id="logemail" autocomplete="none"
+                                                        required>
+                                                    <i class="input-icon fa fa-at"></i>
+                                                </div>
+
+                                                <div class="form-group mt-2">
+                                                    <input type="tel" name="phone" class="form-style"
+                                                        placeholder="Phone" id="phone" autocomplete="tel" required>
+                                                    <i class="input-icon fa fa-phone"></i>
+                                                </div>
+
+
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="logpass" class="form-style"
+                                                        placeholder="Your Password" id="logpass" autocomplete="none"
+                                                        required>
+                                                    <i class="input-icon fa fa-lock"></i>
+                                                </div>
+                                                <a href="#" class="btn mt-4">Signup</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="Password">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="Password"
-                    name="password"
-                    placeholder="Password"
-                    required
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                  Login
-                </button>
-              </form>
-              <a
-                href="#"
-                class="mt-3 d-block text-center"
-                id="forgotPasswordLink"
-                >Forgot password?</a
-              >
             </div>
-
-            <!-- ... Rest of your HTML code ... -->
-
-            <div
-              class="tab-pane fade"
-              id="signup"
-              role="tabpanel"
-              aria-labelledby="signup-tab"
-            >
-              <!-- Signup Form -->
-              <form
-                id="signupForm"
-                action="<?= base_url('Credentials/Register') ?>"
-                method="post"
-              >
-                <?= csrf_field() ?>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="Username">Username</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="Username"
-                      name="username"
-                      placeholder="Username"
-                      required
-                    />
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label for="FirstName">First Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="FirstName"
-                      name="first_name"
-                      placeholder="Enter your First name"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="LastName">Last Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="LastName"
-                      name="last_name"
-                      placeholder="Enter your Last name"
-                      required
-                    />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="Email">Email address</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="Email"
-                      name="email"
-                      placeholder="email@email.com"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="Contact">Contact Number</label>
-                    <input
-                      type="tel"
-                      class="form-control"
-                      id="Contact"
-                      name="contact_number"
-                      placeholder="Contact Number"
-                      required
-                    />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="Password">Password</label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="Password"
-                      name="password"
-                      placeholder="Password"
-                      required
-                    />
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">
-                  Signup
-                </button>
-              </form>
-            </div>
-
-            <!-- ... Rest of your HTML code ... -->
-          </div>
         </div>
-      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-      const toggleSwitch = document.getElementById("toggleSwitch");
-      const loginForm = document.getElementById("login");
-      const signupForm = document.getElementById("signup");
-      const toggleLabel = document.querySelector(".form-check-label");
-
-      toggleSwitch.addEventListener("change", () => {
-        if (toggleSwitch.checked) {
-          loginForm.classList.remove("show", "active");
-          signupForm.classList.add("show", "active");
-          toggleLabel.textContent = "Switch to Login"; // Change label text
-        } else {
-          signupForm.classList.remove("show", "active");
-          loginForm.classList.add("show", "active");
-          toggleLabel.textContent = "Switch to Signup"; // Change label text
-        }
-      });
+    <script rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js">
     </script>
-  </body>
+
+    <script rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
 </html>
