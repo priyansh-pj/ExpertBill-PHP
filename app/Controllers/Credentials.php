@@ -14,6 +14,7 @@ class Credentials extends BaseController
     public function login()
     {
         $session = $this->session->get();
+        var_dump($session);die();
         var_dump($this->session->getFlashdata('Login'));
         if ($session["password_check"]) {
             // return redirect()->to(base_url('Organizations/','refresh'));
