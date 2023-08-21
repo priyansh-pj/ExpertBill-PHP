@@ -343,7 +343,7 @@
                                                         required>
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
-                                                <a href="#" class="btn mt-4">Login</a>
+                                                <input type="submit" class="btn mt-4">Login</a>
                                                 <p class="mb-0 mt-4 text-center">
                                                     <a href="#0" class="link">Forgot your password?</a>
                                                 </p>
@@ -403,7 +403,7 @@
                                                         required>
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
-                                                <a href="#" class="btn mt-4">Signup</a>
+                                                <input type="submit" class="btn mt-4">Signup</a>
                                         </div>
                                     </div>
                                 </div>
