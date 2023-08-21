@@ -22,24 +22,67 @@ class Credentials_model extends Model
         return empty($result) ? [] : $result[0];
 
     }
+
     public function register_user($data)
     {
-        $this->db->trans_start();
-
+        $this->db->transStart();
         $query = "INSERT INTO user_credentials (username, first_name, last_name, email, contact_no, password) VALUES (?, ?, ?, ?, ?, ?)";
         $this->db->query($query, [$data['username'], $data['first_name'], $data['last_name'], $data['email'], $data['contact_number'], $data['password']]);
-        if ($this->db->trans_status() === FALSE) {
-            $this->db->trans_rollback();
+        if ($this->db->transStatus() === FALSE) {
+            $this->db->transRollback();
             return false;
         } else {
-            $this->db->trans_commit();
+            $this->db->transCommit();
         }
     }
 
     public function organization_name($organization)
     {
-        $query = "SELECT organization_id, organization_name FROM organisation WHERE organization_id IN ($organization)";
-        return $this->db->query($query)->getResult();
+        $query = "SELECT id, name FROM organization WHERE id IN (?)";
+        return $this->db->query($query, [$organization])->getResult();
     }
 
+    public function organization_create($data, $profile)
+    {
+        // $this->db->transStart();
+    
+        // Insert into organization table
+        $query = "INSERT INTO organization (name, gst_id, contact_no, email, address, city, state, pincode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $this->db->query($query, [$data['name'], $data['gstin'], $data['phone'], $data['email'], $data['address'], strtolower($data['city']), strtolower($data['state']), $data['pincode']]);
+    
+        // Fetch org_id
+
+        $org_id = $this->db->insertID();
+    
+        // Insert role
+        $query = "INSERT INTO role (user_id, organization_id, role) VALUES (?, ?, 'OWNER')";
+        $this->db->query($query, [$profile->uid, $org_id]);
+    
+        // Update user role
+        $profile_org_id = ($profile->organization_id) ? $profile->organization_id . "|" . $org_id : $org_id;
+    
+        // Update profile
+        $query = "UPDATE user_credentials SET organization_id = ? WHERE uid = ?";
+        $this->db->query($query, [$profile_org_id, $profile->uid]);
+
+    
+        if ($this->db->transStatus() === FALSE) {
+            $this->db->transRollback();
+
+        } else {
+            $this->db->transCommit();
+        }
+        
+        return $profile_org_id;
+    }
+    
+    public function get_organization($uid){
+        $query = "SELECT organization_id FROM user_credentials WHERE uid = ?";
+        return $this->db->query($query, [$uid])->getRow()->organization_id;
+    }
+
+    public function get_role($organization_id, $user_id){
+        $query = "SELECT role FROM role WHERE user_id = ? AND organization_id = ? ";
+        return $this->db->query($query, [$user_id, $organization_id])->getRow()->role; 
+    }
 }
