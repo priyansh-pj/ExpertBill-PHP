@@ -10,7 +10,8 @@ writable/
 tests/
 doc/
 
-app/Config/
+app/Config/app.php
+app/Config/database.php
 
 app/Cache/
 app/Session/
