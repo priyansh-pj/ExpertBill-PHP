@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>ExpertBill</title>
     <meta name="description" content="Experts options for Billing" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Set Content Security Policy meta tag -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
@@ -307,40 +311,54 @@
         display: block
     }
     </style>
-  </head>
-  <body>
-    <div
-      class="container-fluid bg-dark vh-100 d-flex align-items-center justify-content-center"
-    >
-      <div class="card p-0">
-        <div class="card-header bg-primary text-white text-center">
-          <div class="toggle-container">
-            <label class="custom-switch">
-              <input
-                type="checkbox"
-                class="custom-control-input"
-                id="toggleSwitch"
-              />
-              <span class="slider round"></span>
-            </label>
-            <label class="form-check-label">Switch to Signup</label>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="tab-content" id="myTabContent">
-            <div
-              class="tab-pane fade show active"
-              id="login"
-              role="tabpanel"
-              aria-labelledby="login-tab"
-            >
-              <!-- Login Form -->
-              <form
-                id="loginForm"
-                action="<?= base_url('Credentials/login_check') ?>"
-                method="post"
-              >
-                <?= csrf_field() ?>
+</head>
+
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                        <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6> <input class="checkbox"
+                            type="checkbox" id="reg-log" name="reg-log">
+                        <label for="reg-log"></label>
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <!-- Login Form -->
+                                            <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>"
+                                                method="post">
+                                                <?= csrf_field() ?>
+                                                <h4 class="mb-4 pb-3">Log In</h4>
+                                                <div class="form-group">
+                                                    <input type="email" name="logemail" class="form-style"
+                                                        placeholder="Your Email" id="logemail" autocomplete="none"
+                                                        required>
+                                                    <i class="input-icon fa fa-at"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="logpass" class="form-style"
+                                                        placeholder="Your Password" id="logpass" autocomplete="none"
+                                                        required>
+                                                    <i class="input-icon fa fa-lock"></i>
+                                                </div>
+                                                <a href="#" class="btn mt-4">Login</a>
+                                                <p class="mb-0 mt-4 text-center">
+                                                    <a href="#0" class="link">Forgot your password?</a>
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">Sign Up</h4>
+                                            <!-- Signup Form -->
+                                            <form id="signupForm" action="<?= base_url('Credentials/Register') ?>"
+                                                method="post">
+                                                <?= csrf_field() ?>
 
                                                 <div class="form-group">
                                                     <input type="text" name="logusername" class="form-style"
@@ -374,33 +392,11 @@
                                                     <i class="input-icon fa fa-at"></i>
                                                 </div>
 
-            <!-- ... Rest of your HTML code ... -->
-
-            <div
-              class="tab-pane fade"
-              id="signup"
-              role="tabpanel"
-              aria-labelledby="signup-tab"
-            >
-              <!-- Signup Form -->
-              <form
-                id="signupForm"
-                action="<?= base_url('Credentials/Register') ?>"
-                method="post"
-              >
-                <?= csrf_field() ?>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="Username">Username</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="Username"
-                      name="username"
-                      placeholder="Username"
-                      required
-                    />
-                  </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="tel" name="phone" class="form-style"
+                                                        placeholder="Phone" id="phone" autocomplete="tel" required>
+                                                    <i class="input-icon fa fa-phone"></i>
+                                                </div>
 
 
                                                 <div class="form-group mt-2">
