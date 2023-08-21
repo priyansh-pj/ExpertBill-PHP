@@ -15,7 +15,3 @@ app/Config/
 app/Cache/
 app/Session/
 /.DS_Store
-app/Config/Database.php
-app/Config/App.php
-app/Config/Database.php
-app/Config/App.php
