@@ -328,18 +328,17 @@
                                     <div class="center-wrap">
                                         <div class="section text-center">
                                             <!-- Login Form -->
-                                            <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>"
-                                                method="post">
+                                            <form id="loginForm" action="<?= base_url('Credentials/login_check') ?>" method="post">
                                                 <?= csrf_field() ?>
                                                 <h4 class="mb-4 pb-3">Log In</h4>
                                                 <div class="form-group">
-                                                    <input type="email" name="logemail" class="form-style"
+                                                    <input type="email" name="email" class="form-style"
                                                         placeholder="Your Email" id="logemail" autocomplete="none"
                                                         required>
                                                     <i class="input-icon fa fa-at"></i>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="password" name="logpass" class="form-style"
+                                                    <input type="password" name="password" class="form-style"
                                                         placeholder="Your Password" id="logpass" autocomplete="none"
                                                         required>
                                                     <i class="input-icon fa fa-lock"></i>
@@ -356,13 +355,12 @@
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Sign Up</h4>
                                             <!-- Signup Form -->
-                                            <form id="signupForm" action="<?= base_url('Credentials/Register') ?>"
-                                                method="post">
+                                            <form id="signupForm" action="<?= base_url('Credentials/Register') ?>" method="post">
                                                 <?= csrf_field() ?>
 
                                                 <div class="form-group">
-                                                    <input type="text" name="logusername" class="form-style"
-                                                        placeholder="Username" id="logusername" autocomplete="none"
+                                                    <input type="text" name="username" class="form-style"
+                                                        placeholder="Username" id="username" autocomplete="none"
                                                         required>
                                                     <i class="input-icon fa fa-user"></i>
                                                 </div>
@@ -371,14 +369,14 @@
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-6 mt-2">
-                                                            <input type="text" name="fname" class="form-style"
+                                                            <input type="text" name="first_name" class="form-style"
                                                                 placeholder="First Name" id="fname" autocomplete="none"
                                                                 required>
                                                             <i class="input-icon fa fa-bars"></i>
                                                         </div>
 
                                                         <div class="col-md-6 mt-2">
-                                                            <input type="text" name="lname" class="form-style"
+                                                            <input type="text" name="last_name" class="form-style"
                                                                 placeholder="Last Name" id="lname" autocomplete="none"
                                                                 required>
                                                             <i class="input-icon fa input-icon fa fa-bars"></i>
@@ -386,8 +384,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="email" name="logemail" class="form-style"
-                                                        placeholder="Your Email" id="logemail" autocomplete="none"
+                                                    <input type="email" name="email" class="form-style"
+                                                        placeholder="Your Email" id="email" autocomplete="none"
                                                         required>
                                                     <i class="input-icon fa fa-at"></i>
                                                 </div>
@@ -400,8 +398,8 @@
 
 
                                                 <div class="form-group mt-2">
-                                                    <input type="password" name="logpass" class="form-style"
-                                                        placeholder="Your Password" id="logpass" autocomplete="none"
+                                                    <input type="password" name="password" class="form-style"
+                                                        placeholder="Your Password" id="password" autocomplete="none"
                                                         required>
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
