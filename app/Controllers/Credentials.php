@@ -15,8 +15,7 @@ class Credentials extends BaseController
     {
         $session = $this->session->get();
         var_dump($this->session->getFlashdata('Login'));
-        if ($session["password_check"]) {
-            // return redirect()->to(base_url('Organizations/','refresh'));
+        if(isset($session["password_check"])) {
             return redirect()->to(base_url('Organizations/'));
         }
         return view('Credentials/login');
@@ -37,8 +36,6 @@ class Credentials extends BaseController
                 "password_check" => true,
                 "profile" => ($this->credentials_model->get_profile($_POST['email']))
             ]);
-
-            // return redirect()->to(base_url('Organizations/','refresh'));
             return redirect()->to(base_url('Organizations/'));
         } else {
             $this->session->setFlashdata('Login', 'Unable to verify user credentails');
@@ -47,6 +44,9 @@ class Credentials extends BaseController
     }
     public function register()
     {
+        if(isset($session["password_check"])) {
+            return redirect()->to(base_url('Organizations/'));
+        }
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $this->credentials_model->register_user($_POST);
         $this->session->set([
@@ -60,7 +60,7 @@ class Credentials extends BaseController
     public function organization_choice()
     {
         $session = $this->session->get();
-        if ($session["password_check"]) {
+        if(isset($session["password_check"])) {
             $data['organizations'] = str_replace('|', ',', trim($session["profile"]->organization_id, '|'));
             if (!empty($data['organizations'])) {
                 $data['organizations'] = $this->credentials_model->organization_name($data['organizations']);
@@ -82,7 +82,7 @@ class Credentials extends BaseController
     public function organization_make()
     {
         $session = $this->session->get();
-        if ($session["password_check"]) {
+        if (isset($session["password_check"])) {
             $data['profile'] = $session["profile"];
             $data['title'] = 'Create Organization';
             $data['role'] = "";
@@ -94,11 +94,11 @@ class Credentials extends BaseController
         }
 
     }
-    //verified
+    
     public function organization_create()
     {
         $session = $this->session->get();
-        if ($session["password_check"]) {
+        if (isset($session["password_check"])) {
             $sessionProfile = $session["profile"];
             $organization_id = $this->credentials_model->organization_create($_POST, $sessionProfile);
             $sessionProfile->organization_id = $organization_id;
@@ -113,8 +113,9 @@ class Credentials extends BaseController
     public function organization_verify($organization_id)
     {
         $session = $this->session->get();
-        if ($session['password_check']) {
+        if (isset($session["password_check"])) {
             $user_organization = $this->credentials_model->get_organization($session['profile']->uid);
+
             if (str_contains($user_organization, $organization_id)) {
                 $this->session->set(['organization' => $organization_id]);
                 $this->session->set(['role' => $this->credentials_model->get_role($organization_id, $session["profile"]->uid)]);
@@ -127,10 +128,12 @@ class Credentials extends BaseController
         }
     }
 
+    //verified
+
     public function dashboard()
     {
         $session = $this->session->get();
-        if ($session['password_check']) {
+        if (isset($session["password_check"])) {
 
         } else {
             return redirect()->to(base_url(''));
