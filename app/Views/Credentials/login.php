@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>ExpertBill</title>
     <meta name="description" content="Experts options for Billing" />
