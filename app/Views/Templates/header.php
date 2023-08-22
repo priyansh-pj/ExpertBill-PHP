@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Expert Bill</title>
     <link rel="stylesheet" href="<?= base_url('public/vendors/mdi/css/materialdesignicons.min.css') ?>">
-    <?= base_url('public/css/style.css') ?>
     <link rel="stylesheet" href="<?= base_url('public/vendors/css/vendor.bundle.base.css') ?>">
     <link rel="stylesheet" href="<?= base_url('public/css/style.css') ?>">
-
-    <link rel="shortcut icon" href="../../../public/images/favicon.ico" /><!--Set Expert Bill Favicon-->
+    <link rel="shortcut icon" href="<?= base_url('public/images/favicon.ico') ?>" /><!--Set Expert Bill Favicon-->
 </head>
 
 <body>
@@ -18,10 +16,9 @@
         <!-- Navbar start -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="../../index.html"><img src="../../../public/images/logo.svg"
-                        alt="logo" /></a> <!--Set Expert Bill Logo large-->
-                <a class="navbar-brand brand-logo-mini" href="../../index.html"><img
-                        src="../../../public/images/logo-mini.svg" alt="logo" /></a> <!--Set Expert Bill Logo mini-->
+
+                <a class="navbar-brand brand-logo" href="#"><img src="<?= base_url('public/images/logo.svg') ?>" alt="logo" /></a> <!--Set Expert Bill Logo large-->
+                <a class="navbar-brand brand-logo-mini" href="#"><img src="<?= base_url('public/images/logo-mini.svg') ?>" alt="logo" /></a> <!--Set Expert Bill Logo mini-->
             </div>
             <!-- Toggler start -->
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -37,8 +34,7 @@
                             <div class="input-group-prepend bg-transparent">
                                 <i class="input-group-text border-0 mdi mdi-magnify"></i>
                             </div>
-                            <input type="text" class="form-control bg-transparent border-0"
-                                placeholder="Search projects">
+                            <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
                         </div>
                     </form>
                 </div>
@@ -47,8 +43,7 @@
                 <ul class="navbar-nav navbar-nav-right">
                     <!-- Profile Start -->
                     <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
                                 <i class="mdi mdi-account"></i>
                                 <span class="availability-status online"></span>
@@ -80,8 +75,7 @@
                         </a>
                     </li>
                 </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                    data-toggle="offcanvas">
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
                 </button>
             </div>
@@ -128,18 +122,9 @@
                         </a>
                         <div class="collapse" id="owner">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Billing</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Billing History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Quotation</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Quotation History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Invoices</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Invoices History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Expense</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Expense History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Inventory</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Customer Details</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Supplier Details</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Accounts</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Manage Organization</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#">Organization Settings</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="#" disabled>Update Subscription</a></li>
                             </ul>
                         </div>
                     </li>
@@ -258,10 +243,11 @@
             </div>
         </div>
     </div>
-    <script src="../../../public/vendors/js/vendor.bundle.base.js"></script>
-    <script src="../../../public/js/off-canvas.js"></script>
-    <script src="../../../public/js/hoverable-collapse.js"></script>
-    <script src="../../../public/js/misc.js"></script>
+    <?= base_url('public/js/misc.js') ?>
+    <script src="<?= base_url('public/vendors/js/vendor.bundle.base.js') ?>"></script>
+    <script src="<?= base_url('public/js/off-canvas.js') ?>"></script>
+    <script src="<?= base_url('public/js/hoverable-collapse.js') ?>"></script>
+    <script src="<?= base_url('public/js/misc.js') ?>"></script>
 </body>
 
 </html>
