@@ -4,9 +4,9 @@
             <?php $count = 0 ?>
             <div class="col-md-4 grid-margin stretch-card" style="margin-bottom:1.3rem">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="padding:1.7rem;">
 
-                        <h4 class="card-title"><?= $organization->name ?></h4>
+                        <h3><?= $organization->name ?></h3>
                     </div>
                 </div>
             </div>
