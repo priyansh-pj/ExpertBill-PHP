@@ -248,7 +248,7 @@
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="row">
-                        <div class="col-md-12 grid-margin stretch-card">
+                        <div class="col-md-12 grid-margin stretch-card" style="margin-bottom:1.3rem">
                             <div class="card">
                                 <div class="card-body" style="padding:1.7rem;">
                                     <div class="clearfix">
