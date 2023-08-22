@@ -6,7 +6,11 @@
                 <div class="card">
                     <div class="card-body" style="padding:1.7rem;">
 
-                        <h3><?= $organization->name ?></h3>
+                        <h3>
+                            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                                <i class="mdi mdi-home"></i>
+                            </span><?= $organization->name ?>
+                        </h3>
                     </div>
                 </div>
             </div>
