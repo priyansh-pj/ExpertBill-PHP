@@ -6,6 +6,8 @@ use App\Models\Credentials_model;
 
 class Credentials extends BaseController
 {
+    protected $credentials_model;
+    protected $session;
     public function __construct()
     {
         $this->credentials_model = new Credentials_model();
