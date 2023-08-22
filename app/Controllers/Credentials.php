@@ -15,7 +15,7 @@ class Credentials extends BaseController
     {
         $session = $this->session->get();
         var_dump($this->session->getFlashdata('Login'));
-        if(isset($session["password_check"])) {
+        if (isset($session["password_check"])) {
             return redirect()->to(base_url('Organizations/'));
         }
         return view('Credentials/login');
@@ -44,7 +44,7 @@ class Credentials extends BaseController
     }
     public function register()
     {
-        if(isset($session["password_check"])) {
+        if (isset($session["password_check"])) {
             return redirect()->to(base_url('Organizations/'));
         }
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT);
@@ -60,7 +60,7 @@ class Credentials extends BaseController
     public function organization_choice()
     {
         $session = $this->session->get();
-        if(isset($session["password_check"])) {
+        if (isset($session["password_check"])) {
             $data['organizations'] = str_replace('|', ',', trim($session["profile"]->organization_id, '|'));
             if (!empty($data['organizations'])) {
                 $data['organizations'] = $this->credentials_model->organization_name($data['organizations']);
@@ -72,9 +72,11 @@ class Credentials extends BaseController
             $data['title'] = 'Organizations';
             $data['role'] = "";
 
-            // echo view('Templates/header', $data);  //$profile, $title
+            echo view('Templates/header', $data);  //$profile, $title
             // echo view('Credentials/organization_select', $data); //$organizations[]
-            // echo view('Templates/footer');
+            var_dump($data);
+
+            echo view('Templates/footer');
         } else {
             return redirect()->to(base_url(''));
         }
@@ -86,15 +88,15 @@ class Credentials extends BaseController
             $data['profile'] = $session["profile"];
             $data['title'] = 'Create Organization';
             $data['role'] = "";
-            // echo view('Templates/header',$data);
-            echo view('Organization/organization_make');
-            // echo view('Templates/footer');
+            echo view('Templates/header', $data);
+            // echo view('Organization/organization_make');
+            var_dump($data);
+            echo view('Templates/footer');
         } else {
             return redirect()->to(base_url(''));
         }
-
     }
-    
+
     public function organization_create()
     {
         $session = $this->session->get();
@@ -134,7 +136,6 @@ class Credentials extends BaseController
     {
         $session = $this->session->get();
         if (isset($session["password_check"])) {
-
         } else {
             return redirect()->to(base_url(''));
         }
