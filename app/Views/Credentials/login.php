@@ -338,7 +338,7 @@
                                                     <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="none" required>
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
-                                                <input type="submit" class="btn mt-4">Login</input>
+                                                <input type="submit" class="btn mt-4" value="Login"></input>
                                                 <p class="mb-0 mt-4 text-center">
                                                     <a href="#0" class="link">Forgot your password?</a>
                                                 </p>
@@ -387,7 +387,7 @@
                                                     <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="none" required>
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
-                                                <input type="submit" class="btn mt-4">Signup</input>
+                                                <input type="submit" class="btn mt-4" value="Signup"></input>
                                         </div>
                                     </div>
                                 </div>
