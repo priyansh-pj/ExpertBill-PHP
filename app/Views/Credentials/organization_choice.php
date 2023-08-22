@@ -6,10 +6,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title"><span class="page-title-icon bg-gradient-primary text-white me-2">
-                                <i class="mdi mdi-blur"></i>
-                            </span><?= $organization->name ?></h4>
-                        role
+                        <h4 class="card-title"><?= $organization->name ?></h4>
                     </div>
                 </div>
             </div>
