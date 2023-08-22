@@ -49,7 +49,7 @@
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black"><!--USer name--></p>
+                                <p class="mb-1 text-black"><?= $profile->username ?><!--USer name--></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -96,8 +96,10 @@
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2">Priyansh <!-- username --></span>
-                                <span class="text-secondary text-small">Owner<!--role--></span>
+                                <span class="font-weight-bold mb-2"><?= $profile->first_name . " " . $profile->last_name ?> <!-- username --></span>
+                                <?php if (isset($organization)) : ?>
+                                    <span class="text-secondary text-small"><?= $role ?> (<?= $organization ?>)<!--role--></span>
+                                <?php endif ?>
                             </div>
                         </a>
                     </li>
