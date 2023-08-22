@@ -73,8 +73,7 @@ class Credentials extends BaseController
             $data['role'] = "";
 
             echo view('Templates/header', $data);  //$profile, $title
-            // echo view('Credentials/organization_select', $data); //$organizations[]
-            var_dump($data);
+            echo view('Credentials/organization_choice', $data); //$organizations[]
 
             echo view('Templates/footer');
         } else {
