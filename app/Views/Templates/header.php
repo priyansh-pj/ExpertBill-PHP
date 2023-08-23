@@ -132,7 +132,7 @@
                             </div>
                         </li>
                     <?php endif; ?>
-                    <?php if (str_contains($role, 'ACCOUNTANT')) : ?>
+                    <?php if (str_contains($role, 'ACCOUNTANT') || str_contains($role, 'OWNER')) : ?>
                         <!-- Accountant -->
                         <div class="border-bottom"></div>
                         <li class="nav-item ">
@@ -161,7 +161,7 @@
                             </div>
                         </li>
                     <?php endif; ?>
-                    <?php if (str_contains($role, 'SALES')) : ?>
+                    <?php if (str_contains($role, 'SALES') || str_contains($role, 'OWNER')) : ?>
                         <!-- Sales -->
                         <div class="border-bottom"></div>
                         <li class="nav-item ">
@@ -182,7 +182,7 @@
                             </div>
                         </li>
                     <?php endif; ?>
-                    <?php if (str_contains($role, 'ANALYST')) : ?>
+                    <?php if (str_contains($role, 'ANALYST') || str_contains($role, 'OWNER')) : ?>
                         <!-- Analyst -->
                         <div class="border-bottom"></div>
                         <li class="nav-item ">
@@ -202,7 +202,7 @@
                             </div>
                         </li>
                     <?php endif; ?>
-                    <?php if (str_contains($role, 'HR')) : ?>
+                    <?php if (str_contains($role, 'HR') || str_contains($role, 'OWNER')) : ?>
                         <!-- Human Resource -->
                         <div class="border-bottom "></div>
                         <li class="nav-item ">
@@ -222,7 +222,7 @@
                             </div>
                         </li>
                     <?php endif; ?>
-                    <?php if (str_contains($role, 'SUPERVISOR')) : ?>
+                    <?php if (str_contains($role, 'SUPERVISOR') || str_contains($role, 'OWNER')) : ?>
                         <!-- Supervisor -->
                         <div class="border-bottom "></div>
                         <li class="nav-item">
