@@ -63,9 +63,9 @@ class Organization_model extends Model
         return $this->db->query($query, [$uid])->getRow()->organization_id;
     }
 
-    public function all_organizations()
+    public function join_organizations()
     {
-        $query = "SELECT id,gst_id,name FROM organization where active = 1";
+        $query = "";
         return $this->db->query($query)->getResult();
     }
 

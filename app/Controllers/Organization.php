@@ -77,9 +77,8 @@ class Organization extends BaseController
         $session = $this->session->get();
         if (isset($session["password_check"])) {
             $data['profile'] = $session["profile"];
-            $data['title'] = 'Search Organization';
+            $data['title'] = 'Join Organization';
             $data['role'] = "";
-            $data['Organization'] = $this->organization_model->all_organizations();
             echo view('Templates/header', $data);
             echo view('Organization/organization_search', $data);
             echo view('Templates/footer');
@@ -87,7 +86,33 @@ class Organization extends BaseController
             return redirect()->to(base_url(''));
         }
     }
+    public function apply_organization()
+    {
+        $session = $this->session->get();
+        if (isset($session["password_check"])) {
+            $data['profile'] = $session["profile"];
+            $data['title'] = 'Apply Organization';
+            $data['role'] = "";
+            echo view('Templates/header', $data);
+            echo view('Organization/organization_apply');
+            echo view('Templates/footer');
+        } else {
+            return redirect()->to(base_url(''));
+        }
+    }
 
+    public function join_organization()
+    {
+        $session = $this->session->get();
+        if (isset($session["password_check"])) {
+            var_dump($_POST);
+            var_dump($session['profile']->uid);
+            die();
+            return redirect()->to(base_url('Organizations'))
+        } else {
+            return redirect()->to(base_url(''));
+        }
+    }
 
     public function organization_verify($organization_id)
     {

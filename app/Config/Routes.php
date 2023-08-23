@@ -39,7 +39,8 @@ $routes->post('/Credentials/credential_validation', 'Credentials::credential_val
 $routes->get('/Organizations', 'Organization::organization_choice');
 $routes->get('/Organization/make', 'Organization::organization_make');
 $routes->post('/Organization/create', 'Organization::organization_create');
-$routes->get('/Organization/search', 'Organization::search_organization');
+$routes->get('/Organization/apply', 'Organization::apply_organization');
+$routes->get('/Organization/join', 'Organization::join_organization');
 $routes->get('/Organization/verify/(:segment)', 'Organization::organization_verify/$1');
 
 $routes->get('/Dashboard', 'Organization::dashboard');
