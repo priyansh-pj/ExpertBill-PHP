@@ -6,18 +6,18 @@
                     <div class="form-group">
                         <label>Organizations</label>
                         <select class="form-control">
-                            <option>America</option>
-                            <option>Italy</option>
-                            <option>Russia</option>
-                            <option>Britain</option>
+                            <?php foreach ($Organization as $Company) : ?>
+                                <option value="<?= $Company->id ?>"><?= $Company->name ?> <?php if ($Company->gst) {
+                                                                                                echo "({$Company->gst})";
+                                                                                            } ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="col-md-8">
-            <button type="submit" class="btn btn-gradient-primary mb-2">Submit</button>
-        </div>
-
     </div>
-</div>
 </div>
