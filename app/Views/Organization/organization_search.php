@@ -7,9 +7,9 @@
                         <label>Organizations</label>
                         <select class="form-control">
                             <?php foreach ($Organization as $Company) : ?>
-                                <option value="<?= $Company->id ?>"><?= $Company->name ?> <?php if ($Company->gst_id) {
-                                                                                                echo "({$Company->gst_id})";
-                                                                                            } ?></option>
+                                <option value="<?= $Company->id ?>"><?= $Company->id ?>.)<?= $Company->name ?> <?php if ($Company->gst_id) {
+                                                                                                                    echo "({$Company->gst_id})";
+                                                                                                                } ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
