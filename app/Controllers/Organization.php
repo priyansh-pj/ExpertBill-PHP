@@ -108,7 +108,7 @@ class Organization extends BaseController
             var_dump($_POST);
             var_dump($session['profile']->uid);
             die();
-            return redirect()->to(base_url('Organizations'))
+            return redirect()->to(base_url('Organizations'));
         } else {
             return redirect()->to(base_url(''));
         }

@@ -47,7 +47,6 @@ class Organization_model extends Model
         $query = "UPDATE user_credentials SET organization_id = ? WHERE uid = ?";
         $this->db->query($query, [$profile_org_id, $profile->uid]);
 
-
         if ($this->db->transStatus() === FALSE) {
             $this->db->transRollback();
         } else {

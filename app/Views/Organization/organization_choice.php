@@ -49,11 +49,11 @@
         <div class="card">
             <div class="card-body" style="padding: 1.7rem;">
                 <div class="clearfix">
-                    <a href="<?= base_url('Organization/search') ?>" style="text-decoration: none; color: inherit; display: inline-block; width: 100%;">
+                    <a href="<?= base_url('Organization/apply') ?>" style="text-decoration: none; color: inherit; display: inline-block; width: 100%;">
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white me-2">
                                 <i class="mdi mdi-magnify"></i>
-                            </span> Search Organization
+                            </span> Apply Organization
                         </h3>
                     </a>
                 </div>
