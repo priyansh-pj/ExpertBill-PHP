@@ -17,8 +17,8 @@
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 
-                <a class="navbar-brand brand-logo" href="#"><img src="<?= base_url('public/images/logo.svg') ?>" alt="logo" /></a> <!--Set Expert Bill Logo large-->
-                <a class="navbar-brand brand-logo-mini" href="#"><img src="<?= base_url('public/images/logo-mini.svg') ?>" alt="logo" /></a> <!--Set Expert Bill Logo mini-->
+                <a class="navbar-brand brand-logo" href="#">ExpertBill</a> <!--Set Expert Bill Logo large-->
+                <a class="navbar-brand brand-logo-mini" href="#">EB</a> <!--Set Expert Bill Logo mini-->
             </div>
             <!-- Toggler start -->
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -49,7 +49,7 @@
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black"><!--USer name--></p>
+                                <p class="mb-1 text-black"><?= $profile->username ?><!--USer name--></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -96,8 +96,10 @@
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2">Priyansh <!-- username --></span>
-                                <span class="text-secondary text-small">Owner<!--role--></span>
+                                <span class="font-weight-bold mb-2"><?= $profile->first_name . " " . $profile->last_name ?> <!-- username --></span>
+                                <?php if (isset($organization)) : ?>
+                                    <span class="text-secondary text-small"><?= $role ?> (<?= $organization ?>)<!--role--></span>
+                                <?php endif ?>
                             </div>
                         </a>
                     </li>
@@ -113,141 +115,150 @@
                     </li>
                     <!-- Role Start -->
                     <!-- Owner -->
-                    <div class="border-bottom"></div>
-                    <li class="nav-item ">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#owner" aria-expanded="false" aria-controls="owner">
-                            <span class="menu-title">Owner</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-account-card-details menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="owner">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Manage Organization</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Organization Settings</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#" disabled>Update Subscription</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Accountant -->
-                    <div class="border-bottom"></div>
-                    <li class="nav-item ">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#accountant" aria-expanded="false" aria-controls="accountant">
-                            <span class="menu-title">Accountant</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-cash-multiple menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="accountant">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Billing</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Billing History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">GST Billing History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">E-way Billing History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Quotation</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Quotation History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Invoices</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Invoices History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Expense</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Expense History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Inventory</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Customer Details</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Supplier Details</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Accounts</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Sales -->
-                    <div class="border-bottom"></div>
-                    <li class="nav-item ">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#sales" aria-expanded="false" aria-controls="sales">
-                            <span class="menu-title">Sales</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-briefcase menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="sales">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Billing</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Billing History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Quotation</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Quotation History</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Sales Leads</a></li>
+                    <?php if (str_contains($role, 'OWNER')) : ?>
+                        <div class="border-bottom"></div>
+                        <li class="nav-item ">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#owner" aria-expanded="false" aria-controls="owner">
+                                <span class="menu-title">Owner</span>
+                                <i class="menu-arrow"></i>
+                                <i class="mdi mdi-account-card-details menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="owner">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="#">Manage Organization</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Organization Settings</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#" disabled>Update Subscription</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (str_contains($role, 'ACCOUNTANT')) : ?>
+                        <!-- Accountant -->
+                        <div class="border-bottom"></div>
+                        <li class="nav-item ">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#accountant" aria-expanded="false" aria-controls="accountant">
+                                <span class="menu-title">Accountant</span>
+                                <i class="menu-arrow"></i>
+                                <i class="mdi mdi-cash-multiple menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="accountant">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="#">Billing</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Billing History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">GST Billing History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">E-way Billing History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Quotation</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Quotation History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Invoices</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Invoices History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Expense</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Expense History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Inventory</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Customer Details</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Supplier Details</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Accounts</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (str_contains($role, 'SALES')) : ?>
+                        <!-- Sales -->
+                        <div class="border-bottom"></div>
+                        <li class="nav-item ">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#sales" aria-expanded="false" aria-controls="sales">
+                                <span class="menu-title">Sales</span>
+                                <i class="menu-arrow"></i>
+                                <i class="mdi mdi-briefcase menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="sales">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="#">Billing</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Billing History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Quotation</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Quotation History</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Sales Leads</a></li>
 
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Analyst -->
-                    <div class="border-bottom"></div>
-                    <li class="nav-item ">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#analyst" aria-expanded="false" aria-controls="analyst">
-                            <span class="menu-title">Analyst</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="analyst">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Predictive Analytics</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Demand Forecasting</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Employee Management</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Sentiment Analysis</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Risk Assessment</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Human Resource -->
-                    <div class="border-bottom "></div>
-                    <li class="nav-item ">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#human-resource" aria-expanded="false" aria-controls="human-resource">
-                            <span class="menu-title">Human Resource (HR)</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-account-multiple menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="human-resource">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Manage Employee</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Add Employee</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Salary Distribution</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Salary Slip History</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (str_contains($role, 'ANALYST')) : ?>
+                        <!-- Analyst -->
+                        <div class="border-bottom"></div>
+                        <li class="nav-item ">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#analyst" aria-expanded="false" aria-controls="analyst">
+                                <span class="menu-title">Analyst</span>
+                                <i class="menu-arrow"></i>
+                                <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="analyst">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="#">Predictive Analytics</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Demand Forecasting</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Employee Management</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Sentiment Analysis</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Risk Assessment</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (str_contains($role, 'HR')) : ?>
+                        <!-- Human Resource -->
+                        <div class="border-bottom "></div>
+                        <li class="nav-item ">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#human-resource" aria-expanded="false" aria-controls="human-resource">
+                                <span class="menu-title">Human Resource (HR)</span>
+                                <i class="menu-arrow"></i>
+                                <i class="mdi mdi-account-multiple menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="human-resource">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="#">Manage Employee</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Add Employee</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Salary Distribution</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Salary Slip History</a></li>
 
-                            </ul>
-                        </div>
-                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (str_contains($role, 'SUPERVISOR')) : ?>
+                        <!-- Supervisor -->
+                        <div class="border-bottom "></div>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#supervisor" aria-expanded="false" aria-controls="supervisor">
+                                <span class="menu-title">Supervisor</span>
+                                <i class="menu-arrow"></i>
+                                <i class="mdi mdi-worker menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="supervisor">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"> <a class="nav-link" href="#">Inventory</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Manifacture Parts</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="#">Manifacture Parts History</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php endif; ?>
 
-                    <!-- Supervisor -->
-                    <div class="border-bottom "></div>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#supervisor" aria-expanded="false" aria-controls="supervisor">
-                            <span class="menu-title">Supervisor</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-worker menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="supervisor">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="#">Inventory</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Manifacture Parts</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="#">Manifacture Parts History</a></li>
-                            </ul>
-                        </div>
-                    </li>
                     <!-- Role End -->
                 </ul>
             </nav>
             <!-- Sidebar End -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                </div>
-                <footer class="footer">
-                    <div class="container-fluid d-flex justify-content-between">
-                        <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright © ExpertBill</span>
-                        <span class="float-none float-sm-end mt-1 mt-sm-0 text-end"> Affordable Billing software from ExpertBill.in</span>
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card" style="margin-bottom:1.3rem">
+                            <div class="card">
+                                <div class="card-body" style="padding:1.7rem;">
+                                    <div class="clearfix">
+                                        <h3 class="page-title">
+                                            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                                                <i class="mdi mdi-home"></i>
+                                            </span> <?= $title ?>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </footer>
-            </div>
-        </div>
-    </div>
-    <?= base_url('public/js/misc.js') ?>
-    <script src="<?= base_url('public/vendors/js/vendor.bundle.base.js') ?>"></script>
-    <script src="<?= base_url('public/js/off-canvas.js') ?>"></script>
-    <script src="<?= base_url('public/js/hoverable-collapse.js') ?>"></script>
-    <script src="<?= base_url('public/js/misc.js') ?>"></script>
-</body>
-
-</html>

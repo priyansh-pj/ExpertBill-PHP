@@ -331,14 +331,14 @@
                                                 <?= csrf_field() ?>
                                                 <h4 class="mb-4 pb-3">Log In</h4>
                                                 <div class="form-group">
-                                                    <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="none" required>
+                                                    <input type="email" name="email" class="form-style" placeholder="Your Email" id="login-email" autocomplete="none" required>
                                                     <i class="input-icon fa fa-at"></i>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="none" required>
+                                                    <input type="password" name="password" class="form-style" placeholder="Your Password" id="login-pass" autocomplete="none" required>
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
-                                                <a href="#" class="btn mt-4">Login</a>
+                                                <input type="submit" class="btn mt-4" value="Login"></input>
                                                 <p class="mb-0 mt-4 text-center">
                                                     <a href="#0" class="link">Forgot your password?</a>
                                                 </p>
@@ -354,7 +354,7 @@
                                                 <?= csrf_field() ?>
 
                                                 <div class="form-group">
-                                                    <input type="text" name="logusername" class="form-style" placeholder="Username" id="logusername" autocomplete="none" required>
+                                                    <input type="text" name="username" class="form-style" placeholder="Username" id="register-username" autocomplete="none" required>
                                                     <i class="input-icon fa fa-user"></i>
                                                 </div>
 
@@ -362,32 +362,32 @@
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-6 mt-2">
-                                                            <input type="text" name="fname" class="form-style" placeholder="First Name" id="fname" autocomplete="none" required>
+                                                            <input type="text" name="first_name" class="form-style" placeholder="First Name" id="register-fname" autocomplete="none" required>
                                                             <i class="input-icon fa fa-bars"></i>
                                                         </div>
 
                                                         <div class="col-md-6 mt-2">
-                                                            <input type="text" name="lname" class="form-style" placeholder="Last Name" id="lname" autocomplete="none" required>
+                                                            <input type="text" name="last_name" class="form-style" placeholder="Last Name" id="register-lname" autocomplete="none" required>
                                                             <i class="input-icon fa input-icon fa fa-bars"></i>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="none" required>
+                                                    <input type="email" name="email" class="form-style" placeholder="Your Email" id="register-email" autocomplete="none" required>
                                                     <i class="input-icon fa fa-at"></i>
                                                 </div>
 
                                                 <div class="form-group mt-2">
-                                                    <input type="tel" name="phone" class="form-style" placeholder="Phone" id="phone" autocomplete="tel" required>
+                                                    <input type="tel" name="phone" class="form-style" placeholder="Phone" id="register-phone" autocomplete="tel" required>
                                                     <i class="input-icon fa fa-phone"></i>
                                                 </div>
 
 
                                                 <div class="form-group mt-2">
-                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="none" required>
+                                                    <input type="password" name="password" class="form-style" placeholder="Your Password" id="register-pass" autocomplete="none" required>
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
-                                                <a href="#" class="btn mt-4">Signup</a>
+                                                <input type="submit" class="btn mt-4" value="Signup"></input>
                                         </div>
                                     </div>
                                 </div>
