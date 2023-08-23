@@ -36,11 +36,22 @@ class Credentials_model extends Model
         }
     }
 
+    public function profile_organization($user_id)
+    {
+        $query = "SELECT organization_id FROM user_credentials WHERE uid = (?)";
+        $result = $this->db->query($query, [$user_id])->getRow()->organization_id;
+        return empty($result) ? '' : $result;
+    }
+
     public function organization_name($organization)
     {
-        $query = "SELECT id, name FROM organization WHERE id IN (?)";
-        return $this->db->query($query, [$organization])->getResult();
+
+        
+        $query = "SELECT id, name FROM organization WHERE id IN ($organization)";
+        
+        return $this->db->query($query)->getResult();
     }
+
 
     public function organization_create($data, $profile)
     {

@@ -62,8 +62,11 @@ class Credentials extends BaseController
     public function organization_choice()
     {
         $session = $this->session->get();
+        $session["profile"]->organization_id = $this->credentials_model->profile_organization($session["profile"]->uid);
         if (isset($session["password_check"])) {
             $data['organizations'] = str_replace('|', ',', trim($session["profile"]->organization_id, '|'));
+
+            
             if (!empty($data['organizations'])) {
                 $data['organizations'] = $this->credentials_model->organization_name($data['organizations']);
             }
@@ -90,8 +93,7 @@ class Credentials extends BaseController
             $data['title'] = 'Create Organization';
             $data['role'] = "";
             echo view('Templates/header', $data);
-            // echo view('Organization/organization_make');
-            var_dump($data);
+            echo view('Organization/organization_make');
             echo view('Templates/footer');
         } else {
             return redirect()->to(base_url(''));
@@ -137,6 +139,11 @@ class Credentials extends BaseController
     {
         $session = $this->session->get();
         if (isset($session["password_check"])) {
+            $data['profile'] = $session["profile"];
+            $data['title'] = 'DashBoard';
+            $data['role'] = $session["role"];
+            echo view('Templates/header', $data);  //$profile, $title
+            echo view('Templates/footer');
         } else {
             return redirect()->to(base_url(''));
         }

@@ -1,39 +1,16 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<div class="container-fluid py-4">
-  <div class="row">
-    <div class="col-xl-12 col-sm-12 mb-xl-12 mb-12">
-      <div class="card">
-        <div class="card-body p-3">
-          <div class="row align-items-justify">
-            <div class="col-1 text-start" style=" padding-right: 0px; padding-left: 20px;">
-                <div class="icon icon-shape bg-gradient-dark shadow text-center border-radius-md">
-                  <i class="ni ni-badge text-lg opacity-10" aria-hidden="true"></i>
-                </div>
-              </div>
-            <div class="col-md-8">
-              <div class="numbers">
-                <p class="text-sm mb-0 text-capitalize font-weight-bold"></p>
-                <h3 class="font-weight-bolder mb-0" style="display: inline-block;">
-                  Create Organization
-                  <span class="text-success text-sm font-weight-bolder"></span>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center">
-            <br>
-            <center>
-            <div class="alert alert-info col-4 mt-3" role="alert">
-              <span style="color:white;">
-              <strong>Info!</strong> Enter Pincode State and City Will be updated automatically
-              </span>
-            </div>
-            </center>
-              <form class="form mt-1" action="<?= base_url('Organization/create')?>" method="post">
-              <?= csrf_field() ?>
-
-                <div class="row">
+<div class="col-xl-12 col-sm-12 mb-xl-12 mb-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <br>
+                <center>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Info!</strong> Enter Pincode State and City Will be updated automatically
+                    </div>
+                </center>
+                <form class="form-sample" action="<?= base_url('Organization/create')?>" method="post">
+                    <?= csrf_field() ?>
+                    <div class="row">
                   <div class="col-md-6">  
                     <div class="form-group">
                       <label for="organization-name" class="form-control-label" style="font-size:1em;">Organization Name<span style="color:red;"> *</span> : </label>
@@ -85,37 +62,33 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="col-12 ml-1 text-end">
-                  <input type="submit" class="btn bg-gradient-secondary btn-lg"/>
-                </div>
-              </form>
-          </div>
-
+                    <div class="col-12 ml-1 text-end">
+                        <input type="submit" class="btn bg-gradient-secondary btn-lg"/>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#organization-pincode').blur(function() { // When user loses focus from pincode input
-      var pincode = $(this).val(); // Get the pincode entered by the user
-      if (pincode.length == 6) { // If pincode is valid
-        $.ajax({ // Make an AJAX call to fetch city and state from API
-          url: 'https://api.postalpincode.in/pincode/' + pincode,
-          type: 'GET',
-          success: function(result) {
-            if (result[0].Status == 'Success') { // If API returns successful response
-              var city = result[0].PostOffice[0].District; // Get city from response
-              var state = result[0].PostOffice[0].State; // Get state from response
-              $('#organization-city').val(city); // Update city field in the form
-              $('#organization-state').val(state); // Update state field in the form
+    $(document).ready(function() {
+        $('#organization-pincode').blur(function() {
+            var pincode = $(this).val();
+            if (pincode.length == 6) {
+                $.ajax({
+                    url: 'https://api.postalpincode.in/pincode/' + pincode,
+                    type: 'GET',
+                    success: function(result) {
+                        if (result[0].Status == 'Success') {
+                            var city = result[0].PostOffice[0].District;
+                            var state = result[0].PostOffice[0].State;
+                            $('#organization-city').val(city);
+                            $('#organization-state').val(state);
+                        }
+                    }
+                });
             }
-          }
         });
-      }
     });
-  });
 </script>

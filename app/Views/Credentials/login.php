@@ -342,6 +342,7 @@
                                                 <p class="mb-0 mt-4 text-center">
                                                     <a href="#0" class="link">Forgot your password?</a>
                                                 </p>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -388,6 +389,7 @@
                                                     <i class="input-icon fa fa-lock"></i>
                                                 </div>
                                                 <input type="submit" class="btn mt-4" value="Signup"></input>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

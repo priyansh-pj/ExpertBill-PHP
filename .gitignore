@@ -13,6 +13,14 @@ doc/
 app/Config/app.php
 app/Config/database.php
 
+writable/cache/
+writable/debugbar/
+writable/logs/
+writable/session/
+writable/uploads/
+
+
+
 app/Cache/
 app/Session/
 /.DS_Store
