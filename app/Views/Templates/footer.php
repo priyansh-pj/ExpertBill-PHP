@@ -13,6 +13,7 @@
 <script src="<?= base_url('public/js/off-canvas.js') ?>"></script>
 <script src="<?= base_url('public/js/hoverable-collapse.js') ?>"></script>
 <script src="<?= base_url('public/js/misc.js') ?>"></script>
+
 </body>
 
 </html>
