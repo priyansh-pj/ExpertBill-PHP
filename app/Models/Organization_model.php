@@ -26,7 +26,7 @@ class Organization_model extends Model
 
     public function organization_create($data, $profile)
     {
-        // $this->db->transStart();
+        $this->db->transStart();
 
         // Insert into organization table
         $query = "INSERT INTO organization (name, gst_id, contact_no, email, address, city, state, pincode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -62,10 +62,19 @@ class Organization_model extends Model
         return $this->db->query($query, [$uid])->getRow()->organization_id;
     }
 
-    public function join_organizations()
+    public function join_organizations($user_id, $organization_id)
     {
-        $query = "";
-        return $this->db->query($query)->getResult();
+        $this->db->transStart();
+
+        $query = "INSERT INTO `organization_buffer` (`user_id`, `organization_id`) VALUES (?, ?)";
+        $this->db->query($query,[$user_id, $organization_id]);
+
+        if ($this->db->transStatus() === FALSE) {
+            $this->db->transRollback();
+        } else {
+            $this->db->transCommit();
+        }
+
     }
 
     public function get_role($organization_id, $user_id)

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="<?= base_url('public/vendors/css/vendor.bundle.base.css') ?>">
     <link rel="stylesheet" href="<?= base_url('public/css/style.css') ?>">
     <link rel="shortcut icon" href="<?= base_url('public/images/favicon.ico') ?>" /><!--Set Expert Bill Favicon-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -214,7 +216,7 @@
                             <div class="collapse" id="human-resource">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item"> <a class="nav-link" href="#">Manage Employee</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="#">Add Employee</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="<?=base_url('HR/add_employee')?>">Add Employee</a></li>
                                     <li class="nav-item"> <a class="nav-link" href="#">Salary Distribution</a></li>
                                     <li class="nav-item"> <a class="nav-link" href="#">Salary Slip History</a></li>
 

@@ -2,17 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Models\Credentials_model;
 use App\Models\Organization_model;
 
 class Organization extends BaseController
 {
-    protected $credentials_model;
     protected $organization_model;
     protected $session;
     public function __construct()
     {
-        $this->credentials_model = new Credentials_model();
         $this->organization_model = new Organization_model();
         $this->session = \Config\Services::session();
     }
@@ -86,6 +83,25 @@ class Organization extends BaseController
             return redirect()->to(base_url(''));
         }
     }
+
+    public function organization_verify($organization_id)
+    {
+        $session = $this->session->get();
+        if (isset($session["password_check"])) {
+            $user_organization = $this->organization_model->get_organization($session['profile']->uid);
+
+            if (str_contains($user_organization, $organization_id)) {
+                $this->session->set(['organization' => $organization_id]);
+                $this->session->set(['role' => $this->organization_model->get_role($organization_id, $session["profile"]->uid)]);
+                return redirect()->to(base_url('Dashboard'));
+            } else {
+                return redirect()->to(base_url('Organizations/'));
+            }
+        } else {
+            return redirect()->to(base_url(''));
+        }
+    }
+
     public function apply_organization()
     {
         $session = $this->session->get();
@@ -105,32 +121,13 @@ class Organization extends BaseController
     {
         $session = $this->session->get();
         if (isset($session["password_check"])) {
-            var_dump($_POST);
-            var_dump($session['profile']->uid);
-            die();
+            $this->organization_model->join_organizations($session['profile']->uid, $_POST['organization-id']);
             return redirect()->to(base_url('Organizations'));
         } else {
             return redirect()->to(base_url(''));
         }
     }
 
-    public function organization_verify($organization_id)
-    {
-        $session = $this->session->get();
-        if (isset($session["password_check"])) {
-            $user_organization = $this->organization_model->get_organization($session['profile']->uid);
-
-            if (str_contains($user_organization, $organization_id)) {
-                $this->session->set(['organization' => $organization_id]);
-                $this->session->set(['role' => $this->organization_model->get_role($organization_id, $session["profile"]->uid)]);
-                return redirect()->to(base_url('Dashboard'));
-            } else {
-                return redirect()->to(base_url('Organizations/'));
-            }
-        } else {
-            return redirect()->to(base_url(''));
-        }
-    }
 
     public function dashboard()
     {

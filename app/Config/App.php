@@ -17,7 +17,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://expertbill.in/';
+    public string $baseURL = 'http://localhost/ExpertBill';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -445,5 +445,5 @@ class App extends BaseConfig
      * @see http://www.html5rocks.com/en/tutorials/security/content-security-policy/
      * @see http://www.w3.org/TR/CSP/
      */
-    public bool $CSPEnabled = true;
+    public bool $CSPEnabled = false;
 }
