@@ -110,7 +110,7 @@
                     <div class="border-bottom"></div>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../../index.html">
+                        <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                             <span class="menu-title">Dashboard</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>

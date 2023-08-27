@@ -17,8 +17,9 @@ class Organization extends BaseController
     public function organization_choice()
     {
         $session = $this->session->get();
-        $session["profile"]->organization_id = $this->organization_model->profile_organization($session["profile"]->uid);
         if (isset($session["password_check"])) {
+            $session["profile"]->organization_id = $this->organization_model->profile_organization($session["profile"]->uid);
+
             $data['organizations'] = str_replace('|', ',', trim($session["profile"]->organization_id, '|'));
             if (!empty($data['organizations'])) {
                 $data['organizations'] = $this->organization_model->organization_name($data['organizations']);

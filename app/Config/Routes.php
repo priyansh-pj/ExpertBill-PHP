@@ -48,6 +48,8 @@ $routes->post('/Organization/join', 'Organization::join_organization');
 //HR
 $routes->get('/HR/add_employee', 'HR::add_employee');
 $routes->get('/HR/remove_candidate/(:segment)', 'HR::remove_candidate/$1');
+$routes->get('/HR/view_profile', 'HR::view_profile');
+$routes->post('/HR/create_employee', 'HR::create_employee');
 
 
 $routes->get('/Dashboard', 'Organization::dashboard');

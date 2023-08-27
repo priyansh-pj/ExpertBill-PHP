@@ -18,4 +18,19 @@ class HR_model extends Model
         $this->db->query($query, [$user_id, $organization_id]);
     }
 
+    public function candidate_data($username){
+        $query = "SELECT uid, username, first_name, last_name, email, contact_no FROM user_credentials WHERE username = ?";
+        return $this->db->query($query, [$username])->getRow();
+    }
+
+    public function insert_employee($data,$org){
+        $query = "INSERT INTO `employees` (`first_name`, `last_name`, `email`, `contact_no`, `govt_id`, `address`, `organization_id`, `employee_username`,  `salary`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $this->db->query($query, [$data['first_name'], $data['last_name'], $data['email'], $data['phone'], $data['govt'], $data['address'], $org, $data['username'],$data['salary']]);
+    }
+
+    public function manage_employee($organization_id){
+        $query = "SELECT uid, username, first_name, last_name, email, contact_no FROM employees WHERE organization_id = ?";
+        return $this->db->query($query, [$organization_id])->getResult();
+    }
+
 }
